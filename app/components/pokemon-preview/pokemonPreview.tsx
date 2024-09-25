@@ -4,6 +4,25 @@ import styles from "./pokemonPreview.module.css";
 import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
 import PokemonTypes from "../pokemon-types/pokemonTypes";
 const PokemonPreview = ({ pokemon }: { pokemon: PokemonShort }) => {
+	const handleImgError = async (
+		e: React.SyntheticEvent<HTMLImageElement>,
+		id: number
+	) => {
+		const target = e.target as HTMLImageElement;
+		const primarySrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+		const fallbackSrc = "/navbar/abilities.png";
+
+		try {
+			const response = await fetch(primarySrc);
+			if (!response.ok) {
+				throw new Error("Primary image not found");
+			}
+			target.src = primarySrc;
+		} catch {
+			target.src = fallbackSrc;
+		}
+	};
+
 	return (
 		<div className={styles.preview}>
 			<div className={styles.previewImg}>
@@ -14,6 +33,7 @@ const PokemonPreview = ({ pokemon }: { pokemon: PokemonShort }) => {
 					alt={`${pokemon.name} image`}
 					width={100}
 					height={70}
+					onError={(e) => handleImgError(e, pokemon.id)}
 				/>
 			</div>
 			<div className={styles.previewName}>

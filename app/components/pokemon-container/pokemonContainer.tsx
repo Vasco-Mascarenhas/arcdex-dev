@@ -4,26 +4,35 @@ import styles from "./pokemonContainer.module.css";
 import PokemonCard from "../pokemon-card/pokemonCard";
 import { useSearchParams } from "next/navigation";
 
-const INITIAL_LOAD = 30; // Initial number of Pokémon to load
-const LOAD_INCREMENT = 30; // Number of Pokémon to load on scroll
+const INITIAL_LOAD = 30;
+const LOAD_INCREMENT = 30;
 
 const PokemonContainer = ({ pokemons }: { pokemons: PokemonShort[] }) => {
 	const searchParams = useSearchParams();
 	const searchedPokemon = searchParams.get("searched")?.toLowerCase() || "";
 	const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD);
+	const selectedType = searchParams.get("type")?.toLowerCase() || "";
+	let filteredPokemons: PokemonShort[] = pokemons;
 
 	// Filter the Pokémon data based on the search query
-	const filteredPokemons = pokemons?.filter((pokemon) =>
-		pokemon.name.toLowerCase().includes(searchedPokemon)
-	);
+	if (searchedPokemon) {
+		filteredPokemons = pokemons?.filter((pokemon) =>
+			pokemon.name.toLowerCase().includes(searchedPokemon)
+		);
+	}
+
+	if (selectedType) {
+		filteredPokemons = filteredPokemons.filter((pokemon) =>
+			pokemon.types.some((type) => type.type.name === selectedType)
+		);
+	}
 
 	const handleScroll = () => {
 		const scrollPosition =
 			window.innerHeight + document.documentElement.scrollTop;
-		const threshold = document.documentElement.offsetHeight - 100; // Adjust the threshold here
+		const threshold = document.documentElement.offsetHeight - 100;
 
 		if (scrollPosition >= threshold) {
-			// Load more Pokémon when scrolled near the bottom
 			setVisibleCount((prevCount) => prevCount + LOAD_INCREMENT);
 		}
 	};
