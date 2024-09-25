@@ -39,6 +39,8 @@ a {
 }
 
 .layout-header {
+	max-width: 1600px;
 	padding-inline: 20px;
 	padding-top: 20px;
+	margin: 0 auto;
 }

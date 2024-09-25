@@ -1,0 +1,13 @@
+.types {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.type {
+	padding: 8px 10px;
+	text-transform: capitalize;
+	color: #fff;
+	border-radius: 4px;
+}
