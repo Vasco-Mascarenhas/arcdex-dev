@@ -5,10 +5,7 @@ import Ordering from "../components/ordering/ordering";
 import PokemonDataContainer from "../components/pokemonDataContainer/pokemonDataContainer";
 import PokemonContainer from "../components/pokemon-container/pokemonContainer";
 import pokemons from "../data/pokemons.json";
-
-type SearchParams = {
-	pokemon?: number; // Optional, as it may not always be present
-};
+import { SearchParams } from "../interfaces/searchParams/searchPara";
 
 const Page = ({ searchParams }: { searchParams: SearchParams }) => {
 	return (

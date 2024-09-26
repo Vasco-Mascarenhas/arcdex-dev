@@ -1,0 +1,28 @@
+.abilities {
+	width: 100%;
+	height: fit-content;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 25px;
+	align-items: center;
+	text-align: center;
+}
+
+.ability {
+	background-color: var(--secondary);
+	border-radius: 8px;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: var(--text);
+	outline: 2px solid var(--accent);
+	text-transform: capitalize;
+}
