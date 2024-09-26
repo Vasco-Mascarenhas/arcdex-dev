@@ -7,14 +7,14 @@ import styles from "./select.module.css";
 const selectStyle: StylesConfig<Option, false> = {
 	container: (provided) => ({
 		...provided,
-		width: "100%",
-		marginBottom: "10px",
+		width: "200px",
+		height: "40px",
 	}),
 	control: (provided) => ({
 		...provided,
 		backgroundColor: "var(--secondary)",
 		borderColor: "var(--accent)",
-		minHeight: "40px",
+		minHeight: "100%",
 	}),
 	option: (provided, state) => ({
 		...provided,
