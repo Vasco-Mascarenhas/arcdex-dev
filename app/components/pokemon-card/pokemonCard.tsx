@@ -9,7 +9,7 @@ const PokemonCard = ({ pokemon }: { pokemon: PokemonShort }) => {
 	const searchParams = useSearchParams();
 	const handleCardClick = (id: number) => {
 		const pokeId = id.toString();
-		console.log(pokeId);
+
 		const params = new URLSearchParams(searchParams);
 
 		params.set("pokemon", pokeId);

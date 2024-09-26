@@ -1,3 +1,4 @@
+"use client";
 import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
 import React, { useEffect, useState } from "react";
 import styles from "./pokemonContainer.module.css";

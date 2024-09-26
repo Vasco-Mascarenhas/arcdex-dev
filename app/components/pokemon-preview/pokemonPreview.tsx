@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import styles from "./pokemonPreview.module.css";
@@ -22,6 +24,8 @@ const PokemonPreview = ({ pokemon }: { pokemon: PokemonShort }) => {
 			target.src = fallbackSrc;
 		}
 	};
+
+	//console.log(pokemon);
 
 	return (
 		<div className={styles.preview}>

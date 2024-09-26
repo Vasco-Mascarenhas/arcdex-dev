@@ -1,3 +1,5 @@
+"use client";
+
 import { Option } from "@/app/interfaces/select/selectOpt";
 import Select, { SingleValue, StylesConfig } from "react-select";
 import React from "react";
