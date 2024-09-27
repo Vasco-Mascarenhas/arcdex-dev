@@ -1,17 +1,14 @@
-// pokemonData.tsx (Make sure it's not inside a 'use client' file)
-
-// This is a server component
 import React from "react";
 import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 import styles from "./pokemonData.module.css";
 import PokemonAbilities from "../pokemonAbilities/pokemonAbilities";
 import PokemonStats from "../pokemonStats/pokemonStats";
+import PokemonInfo from "../pokemonInfo/pokemonInfo";
 const PokemonData = async ({
 	searchParams,
 }: {
 	searchParams: SearchParams;
 }) => {
-	// Fetch the data server-side
 	let res;
 	if (searchParams.pokemon) {
 		res = await fetch(
@@ -22,11 +19,17 @@ const PokemonData = async ({
 	}
 
 	const data = await res.json();
-	// Render server-side fetched data
+
 	return (
 		<div className={styles.pokemonData}>
 			<PokemonAbilities abilities={data.abilities} />
 			<PokemonStats stats={data.stats} />
+			<PokemonInfo
+				height={data.height}
+				weight={data.weight}
+				base_experience={data.base_experience}
+				types={data.types}
+			/>
 		</div>
 	);
 };

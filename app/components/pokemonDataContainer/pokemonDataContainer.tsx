@@ -17,7 +17,6 @@ const PokemonDataContainer = ({
 		? pokemons.find((p) => p.id === Number(searchParams.pokemon))
 		: pokemons[0];
 
-	console.log(searchParams.pokemon);
 	return (
 		<div className={styles.pokemonDataContainer}>
 			{pokemon ? <PokemonPreview pokemon={pokemon} /> : <div>error</div>}
