@@ -18,7 +18,7 @@ const PokemonEvolution = async ({ evol }: Evolution) => {
 	const thirdEvol = getPokemon(
 		data?.chain?.evolves_to[0]?.evolves_to[0]?.species?.url
 	);
-	console.log(firstEvol);
+
 	return (
 		<div className={styles.pokemonEvolution}>
 			<h4>EVOLUTION DETAILS</h4>
