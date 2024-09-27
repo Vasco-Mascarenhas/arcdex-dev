@@ -1,0 +1,8 @@
+.evolutions {
+	display: flex;
+	gap: 20px;
+}
+
+.evolution {
+	width: 25%;
+}

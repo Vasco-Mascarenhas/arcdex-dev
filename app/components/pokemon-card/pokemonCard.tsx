@@ -1,3 +1,5 @@
+"use client";
+
 import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
 import React from "react";
 import PokemonPreview from "../pokemon-preview/pokemonPreview";

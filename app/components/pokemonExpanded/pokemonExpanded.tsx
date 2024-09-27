@@ -1,10 +1,28 @@
 import React from "react";
 import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 import styles from "./pokemonExpanded.module.css";
-const PokemonExpanded = ({ searchParams }: { searchParams: SearchParams }) => {
-	console.log(searchParams);
+import PokemonEvolution from "../pokemonEvolution/pokemonEvolution";
+const PokemonExpanded = async ({
+	searchParams,
+}: {
+	searchParams: SearchParams;
+}) => {
+	let res;
+	if (searchParams.pokemon) {
+		res = await fetch(
+			`https://pokeapi.co/api/v2/pokemon-species/${searchParams.pokemon}`
+		);
+	} else {
+		res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${1}`);
+	}
 
-	return <section className={styles.pokemonExpanded}>hello</section>;
+	const data = await res.json();
+
+	return (
+		<section className={styles.pokemonExpanded}>
+			<PokemonEvolution evol={data.evolution_chain} />
+		</section>
+	);
 };
 
 export default PokemonExpanded;
