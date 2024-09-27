@@ -8,7 +8,7 @@ const PokemonAbilities = async ({ abilities }: { abilities: Abil[] }) => {
 			<div className={styles.container}>
 				{abilities.map((ability) => (
 					<span className={styles.ability} key={ability.ability.name}>
-						{ability.ability.name}
+						{ability.ability.name.replace("-", " ")}
 					</span>
 				))}
 			</div>

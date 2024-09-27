@@ -7,6 +7,7 @@ import styles from "./pokemonDataContainer.module.css";
 import PokemonData from "../pokemonData/pokemonData";
 import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
+import ExpandedButton from "../expandedButton/expandedButton";
 
 const PokemonDataContainer = ({
 	searchParams,
@@ -19,6 +20,7 @@ const PokemonDataContainer = ({
 
 	return (
 		<div className={styles.pokemonDataContainer}>
+			<ExpandedButton />
 			{pokemon ? <PokemonPreview pokemon={pokemon} /> : <div>error</div>}
 
 			<PokemonData searchParams={searchParams} />

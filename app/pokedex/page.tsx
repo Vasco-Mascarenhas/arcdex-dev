@@ -6,6 +6,7 @@ import PokemonDataContainer from "../components/pokemonDataContainer/pokemonData
 import PokemonContainer from "../components/pokemon-container/pokemonContainer";
 import pokemons from "../data/pokemons.json";
 import { SearchParams } from "../interfaces/searchParams/searchPara";
+import PokemonExpanded from "../components/pokemonExpanded/pokemonExpanded";
 
 const Page = ({ searchParams }: { searchParams: SearchParams }) => {
 	return (
@@ -14,8 +15,14 @@ const Page = ({ searchParams }: { searchParams: SearchParams }) => {
 				<PokemonDataContainer searchParams={searchParams} />
 			</aside>
 			<section className={styles.pokemonSection}>
-				<Ordering options={typeOptions} placeholder="Search for Pokemon!" />
-				<PokemonContainer pokemons={pokemons} />
+				{searchParams.expanded ? (
+					<PokemonExpanded searchParams={searchParams} />
+				) : (
+					<>
+						<Ordering options={typeOptions} placeholder="Search for Pokemon!" />
+						<PokemonContainer pokemons={pokemons} />
+					</>
+				)}
 			</section>
 		</div>
 	);
