@@ -15,7 +15,6 @@ const PokemonExpanded = async ({
 	} else {
 		res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${1}`);
 	}
-
 	const data = await res.json();
 
 	return (

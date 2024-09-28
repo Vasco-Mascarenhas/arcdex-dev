@@ -1,80 +1,39 @@
-export interface PokemonEvol {
-	baby_trigger_item: string;
-	chain: {
-		evolution_details: [];
-		evolves_to: [
-			{
-				evolution_details: [
-					{
-						gender: string;
-						held_item: string;
-						item: string;
-						known_move: string;
-						known_move_type: string;
-						location: string;
-						min_affection: number;
-						min_beauty: number;
-						min_happiness: number;
-						min_level: number;
-						needs_overworld_rain: string;
-						party_species: string;
-						party_type: string;
-						relative_physical_stats: string;
-						time_of_day: string;
-						trade_species: string;
-						trigger: {
-							name: string;
-							url: string;
-						};
-						turn_upside_down: boolean;
-					}
-				];
-				evolves_to: [
-					{
-						evolution_details: [
-							{
-								gender: string;
-								held_item: string;
-								item: string;
-								known_move: string;
-								known_move_type: string;
-								location: string;
-								min_affection: number;
-								min_beauty: number;
-								min_happiness: number;
-								min_level: number;
-								needs_overworld_rain: string;
-								party_species: string;
-								party_type: string;
-								relative_physical_stats: string;
-								time_of_day: string;
-								trade_species: string;
-								trigger: {
-									name: string;
-									url: string;
-								};
-								turn_upside_down: boolean;
-							}
-						];
-						is_baby: boolean;
-						species: {
-							name: string;
-							url: string;
-						};
-					}
-				];
-				is_baby: boolean;
-				species: {
-					name: string;
-					url: string;
-				};
-			}
-		];
-		is_baby: boolean;
-		species: {
-			name: string;
-			url: string;
-		};
+export interface EvolutionDetail {
+	gender?: string | null;
+	held_item?: string | null;
+	item?: { name: string; url: string } | null;
+	known_move?: string | null;
+	known_move_type?: { name: string; url: string } | null;
+	location?: string | null;
+	min_affection?: number | null;
+	min_beauty?: number | null;
+	min_happiness?: number | null;
+	min_level?: number | null;
+	needs_overworld_rain?: boolean | null;
+	party_species?: string | null;
+	party_type?: string | null;
+	relative_physical_stats?: string | null;
+	time_of_day?: string | null;
+	trade_species?: string | null;
+	trigger: {
+		name: string;
+		url: string;
 	};
+	turn_upside_down?: boolean | null;
+}
+
+export interface EvolutionChainLink {
+	species: {
+		name: string;
+		url: string;
+	};
+	evolves_to: EvolutionChainLink[]; // This allows recursion for all evolutions
+	is_baby: boolean;
+	evolution_details: EvolutionDetail[];
+}
+
+export interface PokemonEvol {
+	baby_trigger_item?: string | null;
+	chain: EvolutionChainLink;
 	id: number;
 }
