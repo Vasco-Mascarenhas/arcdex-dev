@@ -22,8 +22,8 @@ const PokemonLocation = async ({
 
 	return (
 		<div className={styles.pokemonLocation}>
-			<h1>Pokemon Encounter Locations</h1>
-			{/* Pass the encounter data to LocationData client component */}
+			<h2>Pokemon Encounter Locations</h2>
+
 			<LocationData data={data} />
 		</div>
 	);

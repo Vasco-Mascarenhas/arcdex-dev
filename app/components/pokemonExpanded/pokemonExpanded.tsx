@@ -20,8 +20,8 @@ const PokemonExpanded = async ({
 
 	return (
 		<section className={styles.pokemonExpanded}>
-			<PokemonLocation searchParams={searchParams} />
 			<PokemonEvolution evol={data.evolution_chain} />
+			<PokemonLocation searchParams={searchParams} />
 		</section>
 	);
 };

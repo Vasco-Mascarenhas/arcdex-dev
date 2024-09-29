@@ -3,52 +3,86 @@
 /* Container styles */
 .pokemonLocation {
 	width: 100%;
+	text-transform: capitalize;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }
 
 .tabContainer {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: flex-start;
-	margin-bottom: 20px;
+	gap: 10px;
 }
 
 .tab {
-	background-color: #f0f0f0;
+	border-radius: 5px;
+	background-color: var(--secondary);
+	padding: 5px 10px;
+	color: white;
 	border: none;
-	padding: 10px 20px;
-	margin-right: 10px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-}
-
-.activeTab {
-	background-color: #4caf50;
-	color: white;
+	text-transform: capitalize;
 	font-weight: bold;
 }
 
+.activeTab {
+	border-radius: 5px;
+	background-color: var(--accent);
+	color: white;
+	font-weight: bold;
+	padding: 5px 10px;
+	border: none;
+	text-transform: capitalize;
+}
+
 .tab:hover {
-	background-color: #e0e0e0;
+	background-color: var(--accent);
 }
 
 .tabContent {
-	margin-top: 20px;
+	width: 100%;
 }
 
+.locationTable th:first-child {
+	border-top-left-radius: 8px;
+}
+.locationTable th:last-child {
+	border-top-right-radius: 8px;
+}
+/*
+
+.locationTable tbody td:first-child {
+	border-bottom-left-radius: 8px;
+}
+.locationTable tbody td:last-child {
+	border-bottom-right-radius: 8px;
+}
+
+
+*/
 .locationTable {
 	width: 100%;
-	border-collapse: collapse;
-	margin-bottom: 20px;
+	border-spacing: 0;
 }
 
 .locationTable th,
 .locationTable td {
-	border: 1px solid #ddd;
 	padding: 8px;
 	text-align: left;
 }
 
 .locationTable th {
 	font-weight: bold;
+	background: var(--secondary);
+}
+
+.locationTable td {
+	border: 1px solid var(--secondary);
+	padding: 8px;
+	text-align: left;
 }
 
 .locationName {
