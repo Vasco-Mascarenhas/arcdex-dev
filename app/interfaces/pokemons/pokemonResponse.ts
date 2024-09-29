@@ -3,8 +3,12 @@ import { PokemonType } from "./pokemonType";
 export interface PokemonResponse {
 	abilities: [
 		{
-			name: string;
-			url: string;
+			is_hidden: boolean;
+			slot: number;
+			ability: {
+				name: string;
+				url: string;
+			};
 		}
 	];
 	base_experience: number;

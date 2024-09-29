@@ -4,6 +4,7 @@ import PokemonEvolution from "../pokemonEvolution/pokemonEvolution";
 import PokemonLocation from "../pokemonLocation/pokemonLocation";
 import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
 import { getId } from "@/app/utility/getid";
+import PokemonAbilityData from "../pokemonAbilityData/pokemonAbilityData";
 const PokemonExpanded = async ({
 	pokemonRes,
 }: {
@@ -20,9 +21,9 @@ const PokemonExpanded = async ({
 		res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${1}`);
 	}
 	const data = await res.json();
-	console.log(pokemonRes.abilities);
 	return (
 		<section className={styles.pokemonExpanded}>
+			<PokemonAbilityData abilities={pokemonRes.abilities} />
 			<PokemonEvolution evol={data.evolution_chain} />
 			<PokemonLocation pokemonRes={pokemonRes} />
 		</section>

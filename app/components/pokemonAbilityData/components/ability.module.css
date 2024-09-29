@@ -1,0 +1,16 @@
+.ability {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	background: var(--background);
+	border-radius: 8px;
+	padding: 10px;
+}
+
+.ability h3 {
+	text-transform: capitalize;
+}
+
+.ability span {
+	color: var(--accent);
+}
