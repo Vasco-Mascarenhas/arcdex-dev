@@ -13,9 +13,11 @@ const Item = async ({ itemRes }: { itemRes: ItemRes }) => {
 		(entry) => entry.language.name === "en"
 	);
 
+	/*
 	const flavor = data.flavor_text_entries.find(
 		(flavor) => flavor.language.name === "en"
 	);
+	*/
 
 	return (
 		<div className={styles.item}>

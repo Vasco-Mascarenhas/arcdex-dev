@@ -1,7 +1,7 @@
 export interface ItemData {
 	attributes: [];
 	baby_trigger_for: unknown;
-	category: {};
+	category: [];
 	cost: number;
 	effect_entries: [
 		{
@@ -31,10 +31,10 @@ export interface ItemData {
 		url: string;
 	};
 	fling_power: number;
-	game_indices: {};
+	game_indices: [];
 	held_by_pokemon: [];
 	id: number;
-	machines: {};
+	machines: [];
 	name: string;
 	sprites: {
 		default: string;
