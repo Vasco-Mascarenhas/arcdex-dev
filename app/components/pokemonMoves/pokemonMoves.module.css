@@ -24,6 +24,8 @@
 	width: 100%;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+	flex-wrap: wrap;
+	align-items: center;
 }
 
 .move:hover {

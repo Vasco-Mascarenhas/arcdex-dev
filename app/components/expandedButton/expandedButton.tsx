@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
+import styles from "./expandedButton.module.css";
 const ExpandedButton = () => {
 	const pathName = usePathname();
 	const router = useRouter();
@@ -24,8 +24,8 @@ const ExpandedButton = () => {
 	};
 
 	return (
-		<button onClick={handleExpandToggle}>
-			{searchParams.get("expanded") === "true" ? "Collapse" : "Expand"}
+		<button onClick={handleExpandToggle} className={styles.expand}>
+			{searchParams.get("expanded") === "true" ? "Less..." : "More..."}
 		</button>
 	);
 };

@@ -1,0 +1,8 @@
+.expand {
+	margin-left: auto;
+	border: 2px solid var(--accent);
+	background: var(--background);
+	border-radius: 8px;
+	color: var(--text);
+	padding: 5px 10px;
+}
