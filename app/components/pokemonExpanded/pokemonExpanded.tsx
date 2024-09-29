@@ -5,6 +5,7 @@ import PokemonLocation from "../pokemonLocation/pokemonLocation";
 import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
 import { getId } from "@/app/utility/getid";
 import PokemonAbilityData from "../pokemonAbilityData/pokemonAbilityData";
+import PokemonMoves from "../pokemonMoves/pokemonMoves";
 const PokemonExpanded = async ({
 	pokemonRes,
 }: {
@@ -26,6 +27,7 @@ const PokemonExpanded = async ({
 			<PokemonAbilityData abilities={pokemonRes.abilities} />
 			<PokemonEvolution evol={data.evolution_chain} />
 			<PokemonLocation pokemonRes={pokemonRes} />
+			<PokemonMoves moves={pokemonRes.moves} />
 		</section>
 	);
 };

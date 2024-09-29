@@ -1,0 +1,71 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.moves {
+	background-color: var(--secondary);
+	padding: 10px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	border-radius: 8px;
+	gap: 5px;
+}
+
+.move {
+	display: flex;
+	text-transform: capitalize;
+	padding: 10px;
+	gap: 10px;
+	background: var(--background);
+	border: 2px solid var(--accent);
+	border-radius: 8px;
+	width: 100%;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.move:hover {
+	scale: 1.01;
+}
+
+.method {
+	display: flex;
+	gap: 10px;
+}
+
+.moveName {
+	width: 100%;
+	max-width: 110px;
+	color: var(--accent);
+}
+
+.selected {
+	border-radius: 5px;
+	background-color: var(--accent);
+	color: white;
+	font-weight: bold;
+	padding: 5px 10px;
+	border: none;
+	text-transform: capitalize;
+}
+
+.version {
+	border-radius: 5px;
+	background-color: var(--secondary);
+	padding: 5px 10px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 10px;
+}

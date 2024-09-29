@@ -151,7 +151,7 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 		return (
 			<p>
 				Is an evolution, obtainable from trading or is a pokemon from
-				sword&shield/legends Arceus
+				sword&shield/legends Arceus (which pokeApi has no data)
 			</p>
 		);
 	}

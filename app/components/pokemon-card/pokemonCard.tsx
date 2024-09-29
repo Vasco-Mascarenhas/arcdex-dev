@@ -79,6 +79,13 @@ const PokemonCard = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
 							) : (
 								""
 							)}
+							{detail.trigger.name ? (
+								<div className={`${styles.detail} ${styles.trigger}`}>
+									<span>{detail.trigger.name.replace("-", " ")}</span>
+								</div>
+							) : (
+								""
+							)}
 						</div>
 					))}
 				</div>

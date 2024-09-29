@@ -17,3 +17,12 @@
 .card:hover {
 	scale: 1.03;
 }
+
+.detail {
+	text-align: center;
+}
+
+.trigger {
+	color: var(--accent);
+	text-transform: capitalize;
+}

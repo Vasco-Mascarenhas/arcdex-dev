@@ -1,3 +1,4 @@
+import { Move } from "@/app/interfaces/move/move";
 import { PokemonType } from "./pokemonType";
 
 export interface PokemonResponse {
@@ -36,14 +37,7 @@ export interface PokemonResponse {
 	id: number;
 	is_default: boolean;
 	location_area_encounters: string;
-	moves: [
-		{
-			move: {
-				name: string;
-				url: string;
-			};
-		}
-	];
+	moves: Move[];
 	name: string;
 	order: number;
 	past_abilities: [];
