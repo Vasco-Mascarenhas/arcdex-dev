@@ -25,7 +25,7 @@ const PokemonLocation = async ({
 
 	return (
 		<div className={styles.pokemonLocation}>
-			<h2>Pokemon Locations</h2>
+			<h2>Locations</h2>
 
 			<LocationData data={data} />
 		</div>

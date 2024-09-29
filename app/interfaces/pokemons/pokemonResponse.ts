@@ -1,5 +1,6 @@
 import { Move } from "@/app/interfaces/move/move";
 import { PokemonType } from "./pokemonType";
+import { HeldItem } from "../heldItem/heldItem";
 
 export interface PokemonResponse {
 	abilities: [
@@ -33,7 +34,7 @@ export interface PokemonResponse {
 		}
 	];
 	height: number;
-	held_item: [];
+	held_items: HeldItem[];
 	id: number;
 	is_default: boolean;
 	location_area_encounters: string;
