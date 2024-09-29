@@ -148,7 +148,12 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 	}, [data, versionKeys, activeTab]);
 
 	if (!data || data.length === 0) {
-		return <p>No location data available.</p>;
+		return (
+			<p>
+				Is an evolution, obtainable from trading or is a pokemon from
+				sword&shield/legends Arceus
+			</p>
+		);
 	}
 
 	return (

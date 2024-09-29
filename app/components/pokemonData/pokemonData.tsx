@@ -1,19 +1,13 @@
 import React from "react";
-import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 import styles from "./pokemonData.module.css";
 import PokemonAbilities from "../pokemonAbilities/pokemonAbilities";
 import PokemonStats from "../pokemonStats/pokemonStats";
 import PokemonInfo from "../pokemonInfo/pokemonInfo";
-const PokemonData = async ({
-	searchParams,
-}: {
-	searchParams: SearchParams;
-}) => {
+import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
+const PokemonData = async ({ pokemonRes }: { pokemonRes: PokemonResponse }) => {
 	let res;
-	if (searchParams.pokemon) {
-		res = await fetch(
-			`https://pokeapi.co/api/v2/pokemon/${searchParams.pokemon}`
-		);
+	if (pokemonRes) {
+		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonRes.id}`);
 	} else {
 		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}`);
 	}

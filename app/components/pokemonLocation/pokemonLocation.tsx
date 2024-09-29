@@ -1,18 +1,21 @@
-import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 import styles from "./pokemonLocation.module.css";
 import React from "react";
 import { EncounterLocation } from "@/app/interfaces/pokemons/pokemonLocation";
 import LocationData from "./component/locationData";
+import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
+import { getId } from "@/app/utility/getid";
 
 const PokemonLocation = async ({
-	searchParams,
+	pokemonRes,
 }: {
-	searchParams: SearchParams;
+	pokemonRes: PokemonResponse;
 }) => {
 	let res: Response;
-	if (searchParams.pokemon) {
+	if (pokemonRes.id) {
 		res = await fetch(
-			`https://pokeapi.co/api/v2/pokemon/${searchParams.pokemon}/encounters`
+			`https://pokeapi.co/api/v2/pokemon/${getId(
+				pokemonRes.species.url
+			)}/encounters`
 		);
 	} else {
 		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}/encounters`);
