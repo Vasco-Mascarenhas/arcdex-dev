@@ -1,0 +1,56 @@
+/* locationData.module.css */
+
+/* Container styles */
+.pokemonLocation {
+	width: 100%;
+}
+
+.tabContainer {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+}
+
+.tab {
+	background-color: #f0f0f0;
+	border: none;
+	padding: 10px 20px;
+	margin-right: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.activeTab {
+	background-color: #4caf50;
+	color: white;
+	font-weight: bold;
+}
+
+.tab:hover {
+	background-color: #e0e0e0;
+}
+
+.tabContent {
+	margin-top: 20px;
+}
+
+.locationTable {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+.locationTable th,
+.locationTable td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: left;
+}
+
+.locationTable th {
+	font-weight: bold;
+}
+
+.locationName {
+	font-weight: bold;
+}

@@ -54,7 +54,7 @@ const PokemonEvolution = async ({ evol }: Evolution) => {
 	const evolutions = extractEvolutions(data.chain);
 	return (
 		<div className={styles.pokemonEvolution}>
-			<h4>EVOLUTION DETAILS</h4>
+			<h2>EVOLUTION DETAILS</h2>
 			<div className={styles.evolutions}>
 				{evolutions.map(({ pokemon, evolution_details }) => (
 					<div key={pokemon.id} className={styles.evolution}>

@@ -25,7 +25,6 @@ const PokemonCard = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
 		router.push(`${pathName}?${params.toString()}`, { scroll: false });
 	};
 
-	console.log(evolutionDetails);
 	return (
 		<div className={styles.card} onClick={() => handleCardClick(pokemon.id)}>
 			<PokemonPreview pokemon={pokemon} />
@@ -33,19 +32,53 @@ const PokemonCard = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
 				<div className={styles.evolutionDetails}>
 					{evolutionDetails.slice(-1).map((detail) => (
 						<div className={styles.details} key={pokemon.id}>
-							{detail.item?.name}
 							{detail.item?.name ? (
-								<Image
-									src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${detail.item.name}.png`}
-									width={30}
-									height={30}
-									alt={detail.item.name}
-								/>
+								<div className={`${styles.detail} ${styles.item}`}>
+									<Image
+										src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${detail.item.name}.png`}
+										width={30}
+										height={30}
+										alt={detail.item.name}
+									/>
+								</div>
 							) : (
 								""
 							)}
-							{detail.known_move_type?.name}
-							{detail.min_happiness}
+
+							{detail.min_level ? (
+								<div className={`${styles.detail} ${styles.level}`}>
+									<span>Level: {detail.min_level}</span>
+								</div>
+							) : (
+								""
+							)}
+							{detail.known_move_type ? (
+								<div className={`${styles.detail} ${styles.moveType}`}>
+									<span>Move type: {detail.known_move_type.name}</span>
+								</div>
+							) : (
+								""
+							)}
+							{detail.min_happiness ? (
+								<div className={`${styles.detail} ${styles.happiness}`}>
+									<span>Min Happ: {detail.min_happiness}</span>
+								</div>
+							) : (
+								""
+							)}
+							{detail.held_item ? (
+								<div className={`${styles.detail} ${styles.held}`}>
+									<span>Held Item:</span>
+									<Image
+										src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${detail.held_item.name}.png`}
+										width={30}
+										height={30}
+										alt={detail.held_item.name}
+									/>
+								</div>
+							) : (
+								""
+							)}
 						</div>
 					))}
 				</div>

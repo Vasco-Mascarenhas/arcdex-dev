@@ -2,6 +2,7 @@ import React from "react";
 import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 import styles from "./pokemonExpanded.module.css";
 import PokemonEvolution from "../pokemonEvolution/pokemonEvolution";
+import PokemonLocation from "../pokemonLocation/pokemonLocation";
 const PokemonExpanded = async ({
 	searchParams,
 }: {
@@ -19,6 +20,7 @@ const PokemonExpanded = async ({
 
 	return (
 		<section className={styles.pokemonExpanded}>
+			<PokemonLocation searchParams={searchParams} />
 			<PokemonEvolution evol={data.evolution_chain} />
 		</section>
 	);
