@@ -10,7 +10,7 @@ const PokemonHeld = async ({ heldItem }: { heldItem: HeldItem[] }) => {
 			<h2>Held Item</h2>
 			<div className={styles.items}>
 				{items.length > 0 ? (
-					items.map((item) => <Item itemRes={item.item} />)
+					items.map((item) => <Item key={item.item.name} itemRes={item.item} />)
 				) : (
 					<div>This pokemon holds no item.</div>
 				)}
