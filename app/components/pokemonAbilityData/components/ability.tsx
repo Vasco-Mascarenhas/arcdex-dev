@@ -10,11 +10,15 @@ const Ability = async ({ ability }: { ability: Abil }) => {
 		(entry) => entry.language.name === "en"
 	);
 
+	const flavor = data.flavor_text_entries.find(
+		(flavor) => flavor.language.name === "en"
+	);
+
 	//console.log(data);
 	return (
 		<div className={styles.ability}>
 			<h3>{data.name.replace("-", " ")}</h3>
-			<p>{entry?.effect}</p>
+			{entry ? <p>{entry.effect}</p> : <p>{flavor?.flavor_text}</p>}
 			<span>Introduced in {data.generation.name.replace("-", " ")}</span>
 		</div>
 	);
