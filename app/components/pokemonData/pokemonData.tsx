@@ -7,9 +7,13 @@ import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
 const PokemonData = async ({ pokemonRes }: { pokemonRes: PokemonResponse }) => {
 	let res;
 	if (pokemonRes) {
-		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonRes.id}`);
+		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonRes.id}`, {
+			next: { revalidate: 0 }, // Cache indefinitely
+		});
 	} else {
-		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}`);
+		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}`, {
+			next: { revalidate: 0 }, // Cache indefinitely
+		});
 	}
 
 	const data = await res.json();

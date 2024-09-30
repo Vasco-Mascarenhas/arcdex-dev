@@ -18,10 +18,15 @@ const PokemonExpanded = async ({
 		res = await fetch(
 			`https://pokeapi.co/api/v2/pokemon-species/${getId(
 				pokemonRes.species.url
-			)}`
+			)}`,
+			{
+				next: { revalidate: 0 }, // Cache indefinitely
+			}
 		);
 	} else {
-		res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${1}`);
+		res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${1}`, {
+			next: { revalidate: 0 }, // Cache indefinitely
+		});
 	}
 	const data = await res.json();
 	return (

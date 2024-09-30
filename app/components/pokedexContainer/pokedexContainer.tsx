@@ -16,10 +16,15 @@ const PokedexContainer = async ({
 	let res;
 	if (searchParams.pokemon) {
 		res = await fetch(
-			`https://pokeapi.co/api/v2/pokemon/${searchParams.pokemon}`
+			`https://pokeapi.co/api/v2/pokemon/${searchParams.pokemon}`,
+			{
+				next: { revalidate: 0 }, // Cache indefinitely
+			}
 		);
 	} else {
-		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}`);
+		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}`, {
+			next: { revalidate: 0 }, // Cache indefinitely
+		});
 	}
 
 	const data: PokemonResponse = await res.json();

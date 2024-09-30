@@ -17,7 +17,9 @@ interface Evolution {
 }
 
 const PokemonEvolution = async ({ evol }: Evolution) => {
-	const res = await fetch(evol.url);
+	const res = await fetch(evol.url, {
+		next: { revalidate: 0 }, // Cache indefinitely
+	});
 	const data: PokemonEvol = await res.json();
 
 	// Function to recursively extract all evolutions with their evolution details

@@ -15,10 +15,15 @@ const PokemonLocation = async ({
 		res = await fetch(
 			`https://pokeapi.co/api/v2/pokemon/${getId(
 				pokemonRes.species.url
-			)}/encounters`
+			)}/encounters`,
+			{
+				next: { revalidate: 0 }, // Cache indefinitely
+			}
 		);
 	} else {
-		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}/encounters`);
+		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}/encounters`, {
+			next: { revalidate: 0 }, // Cache indefinitely
+		});
 	}
 
 	const data: EncounterLocation[] = await res.json(); // Type the response data
