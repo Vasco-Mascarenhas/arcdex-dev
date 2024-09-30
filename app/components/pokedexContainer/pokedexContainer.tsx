@@ -1,5 +1,5 @@
 import { typeOptions } from "@/app/constants/typeOptions";
-import React from "react";
+import React, { Suspense } from "react";
 import Ordering from "../ordering/ordering";
 import PokemonContainer from "../pokemon-container/pokemonContainer";
 import styles from "./pokedexContainer.module.css";
@@ -10,8 +10,10 @@ const PokedexContainer = () => {
 			<aside className={styles.pokemonData}></aside>
 			<section className={styles.pokemonSection}>
 				<>
-					<Ordering options={typeOptions} placeholder="Search for Pokemon!" />
-					<PokemonContainer pokemons={pokemons} />
+					<Suspense fallback={<div>loading...</div>}>
+						<Ordering options={typeOptions} placeholder="Search for Pokemon!" />
+						<PokemonContainer pokemons={pokemons} />
+					</Suspense>
 				</>
 			</section>
 		</>
