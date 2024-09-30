@@ -35,7 +35,7 @@ const Item = async ({ itemRes }: { itemRes: ItemRes }) => {
 			<div className={styles.content}>
 				<p>{entry?.effect}</p>
 				<p>Costs {data.cost}₽</p>
-				<span>Fling effect: {data.fling_effect.name.replace("-", " ")}</span>
+				<span>Fling effect: {data.fling_effect?.name.replace("-", " ")}</span>
 			</div>
 		</div>
 	);

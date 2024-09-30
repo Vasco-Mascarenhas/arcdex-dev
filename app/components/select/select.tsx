@@ -41,7 +41,6 @@ const Selects = ({ options }: { options: Option[] }) => {
 	const searchParams = useSearchParams();
 
 	const params = new URLSearchParams(searchParams.toString());
-
 	const handleSelect = (option: SingleValue<Option>) => {
 		if (option && option.value !== "") {
 			params.set("type", option.value);
@@ -52,6 +51,11 @@ const Selects = ({ options }: { options: Option[] }) => {
 		router.push(`${pathname}?${params.toString().toLowerCase()}`);
 	};
 
+	const selected = params.get("type");
+
+	const selectedOption = options.find(
+		(opt) => opt.label.toLowerCase() === selected
+	);
 	return (
 		<Select
 			id="selector"
@@ -60,6 +64,7 @@ const Selects = ({ options }: { options: Option[] }) => {
 			options={options}
 			onChange={handleSelect}
 			styles={selectStyle}
+			value={selectedOption}
 		/>
 	);
 };

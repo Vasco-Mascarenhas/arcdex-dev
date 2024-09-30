@@ -1,9 +1,50 @@
-"use client";
+import { typeOptions } from "@/app/constants/typeOptions";
+import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
+import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
+import React, { Suspense } from "react";
+import Ordering from "../ordering/ordering";
+import PokemonContainer from "../pokemon-container/pokemonContainer";
+import PokemonDataContainer from "../pokemonDataContainer/pokemonDataContainer";
+import PokemonExpanded from "../pokemonExpanded/pokemonExpanded";
+import styles from "./pokedexContainer.module.css";
+import pokemons from "../../data/pokemons.json";
+const PokedexContainer = async ({
+	searchParams,
+}: {
+	searchParams: SearchParams;
+}) => {
+	let res;
+	if (searchParams.pokemon) {
+		res = await fetch(
+			`https://pokeapi.co/api/v2/pokemon/${searchParams.pokemon}`
+		);
+	} else {
+		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${1}`);
+	}
 
-import React from "react";
+	const data: PokemonResponse = await res.json();
 
-const PokedexContainer = ({ children }: { children: React.ReactNode }) => {
-	return <section>{children}</section>;
+	return (
+		<>
+			<aside className={styles.pokemonData}>
+				<Suspense fallback={<div>loading...</div>}>
+					<PokemonDataContainer pokemonRes={data} />
+				</Suspense>
+			</aside>
+			<section className={styles.pokemonSection}>
+				{searchParams.expanded ? (
+					<Suspense fallback={<div>loading..</div>}>
+						<PokemonExpanded pokemonRes={data} />
+					</Suspense>
+				) : (
+					<>
+						<Ordering options={typeOptions} placeholder="Search for Pokemon!" />
+						<PokemonContainer pokemons={pokemons} />
+					</>
+				)}
+			</section>
+		</>
+	);
 };
 
 export default PokedexContainer;

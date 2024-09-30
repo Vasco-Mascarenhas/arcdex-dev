@@ -22,7 +22,9 @@ const PokemonCard = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
 		const pokeId = id.toString();
 		const params = new URLSearchParams(searchParams);
 		params.set("pokemon", pokeId);
-		router.push(`${pathName}?${params.toString()}`, { scroll: false });
+		router.replace(`${pathName}?${params.toString()}`, {
+			scroll: false,
+		});
 	};
 
 	return (

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Move } from "@/app/interfaces/move/move";
 import styles from "./pokemonMoves.module.css";
 
@@ -21,6 +21,12 @@ const PokemonMoves = ({ moves }: { moves: Move[] }) => {
 	const [selectedVersionGroup, setSelectedVersionGroup] = useState<string>(
 		versionGroups[0] // Set the first version group as default
 	);
+
+	useEffect(() => {
+		if (!versionGroups.includes(selectedVersionGroup)) {
+			setSelectedVersionGroup(versionGroups[0]); // Fallback to the first version if the active one is not found
+		}
+	}, [moves, versionGroups, selectedVersionGroup]);
 
 	// Filter the moves based on the selected version group
 	const filteredMoves = moves.map((move) => ({
