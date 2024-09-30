@@ -4,9 +4,9 @@ import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
 import React from "react";
 import PokemonPreview from "../pokemon-preview/pokemonPreview";
 import styles from "./pokemonCard.module.css";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { EvolutionDetail } from "@/app/interfaces/pokemons/pokemonEvolution";
 import Image from "next/image";
+import Link from "next/link";
 
 interface PokemonCardProps {
 	pokemon: PokemonShort;
@@ -14,21 +14,12 @@ interface PokemonCardProps {
 }
 
 const PokemonCard = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
-	const pathName = usePathname();
-	const router = useRouter();
-	const searchParams = useSearchParams();
-
-	const handleCardClick = (id: number) => {
-		const pokeId = id.toString();
-		const params = new URLSearchParams(searchParams);
-		params.set("pokemon", pokeId);
-		router.replace(`${pathName}?${params.toString()}`, {
-			scroll: false,
-		});
-	};
-
 	return (
-		<div className={styles.card} onClick={() => handleCardClick(pokemon.id)}>
+		<Link
+			className={styles.card}
+			prefetch={true}
+			href={{ pathname: `/pokedex/${pokemon.id}` }}
+		>
 			<PokemonPreview pokemon={pokemon} />
 			{evolutionDetails && (
 				<div className={styles.evolutionDetails}>
@@ -92,7 +83,7 @@ const PokemonCard = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
 					))}
 				</div>
 			)}
-		</div>
+		</Link>
 	);
 };
 

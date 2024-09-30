@@ -6,7 +6,6 @@ import PokemonPreview from "../pokemon-preview/pokemonPreview";
 import styles from "./pokemonDataContainer.module.css";
 import PokemonData from "../pokemonData/pokemonData";
 import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
-import ExpandedButton from "../expandedButton/expandedButton";
 import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
 const PokemonDataContainer = ({
 	pokemonRes,
@@ -19,7 +18,6 @@ const PokemonDataContainer = ({
 
 	return (
 		<div className={styles.pokemonDataContainer}>
-			<ExpandedButton />
 			{pokemon ? <PokemonPreview pokemon={pokemon} /> : <div>error</div>}
 
 			<PokemonData pokemonRes={pokemonRes} />

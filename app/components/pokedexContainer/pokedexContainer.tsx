@@ -7,21 +7,12 @@ import pokemons from "../../data/pokemons.json";
 import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 const PokedexContainer = ({ searchParams }: { searchParams: SearchParams }) => {
 	return (
-		<>
-			<aside className={styles.pokemonData}></aside>
-			<section className={styles.pokemonSection}>
-				{!searchParams.expanded ? (
-					<>
-						<Suspense fallback={<div>loading...</div>}>
-							<Ordering options={typeOptions} placeholder="Search Pokemon!" />
-						</Suspense>
-						<PokemonContainer pokemons={pokemons} searchParams={searchParams} />
-					</>
-				) : (
-					""
-				)}
-			</section>
-		</>
+		<section className={styles.pokemonSection}>
+			<Suspense fallback={<div>loading...</div>}>
+				<Ordering options={typeOptions} placeholder="Search Pokemon!" />
+			</Suspense>
+			<PokemonContainer pokemons={pokemons} searchParams={searchParams} />
+		</section>
 	);
 };
 
