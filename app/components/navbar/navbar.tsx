@@ -42,6 +42,7 @@ const NavBar = () => {
 				<Link
 					href={route.link}
 					key={route.name}
+					prefetch={true}
 					className={`${styles.link} ${
 						pathName === route.link ? styles.active : ""
 					}`}
