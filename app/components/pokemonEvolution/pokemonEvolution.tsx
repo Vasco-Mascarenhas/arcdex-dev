@@ -8,7 +8,7 @@ import {
 import { getPokemon } from "@/app/utility/getid";
 
 import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
-import PokemonCard from "../pokemon-card/pokemonCard";
+import EvolutionDetails from "./evolutionDetails/evolutionDetails";
 
 interface Evolution {
 	evol: {
@@ -54,13 +54,15 @@ const PokemonEvolution = async ({ evol }: Evolution) => {
 	};
 
 	const evolutions = extractEvolutions(data.chain);
+
+	if (evolutions.length == 1) return;
 	return (
 		<div className={styles.pokemonEvolution}>
 			<h2>Evolution</h2>
 			<div className={styles.evolutions}>
 				{evolutions.map(({ pokemon, evolution_details }) => (
 					<div key={pokemon.id} className={styles.evolution}>
-						<PokemonCard
+						<EvolutionDetails
 							pokemon={pokemon}
 							evolutionDetails={evolution_details}
 						/>
