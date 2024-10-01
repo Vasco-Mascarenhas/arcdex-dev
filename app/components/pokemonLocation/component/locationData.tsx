@@ -1,10 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import styles from "./locationData.module.css";
 import {
 	EncounterLocation,
 	EncounterDetail,
 } from "@/app/interfaces/pokemons/pokemonLocation";
+import { versionOrder } from "@/app/constants/pokemonOrder";
 
 // Define a type for the merged encounter
 interface MergedEncounter {
@@ -14,61 +15,6 @@ interface MergedEncounter {
 	max_chance: number;
 	method: { name: string };
 }
-
-const versionReleaseDates: { [key: string]: string } = {
-	// Generation 1
-	red: "1996-02-27",
-	blue: "1996-02-27",
-	yellow: "1998-09-12",
-
-	// Generation 2
-	gold: "1999-11-21",
-	silver: "1999-11-21",
-	crystal: "2000-12-14",
-
-	// Generation 3
-	ruby: "2002-11-21",
-	sapphire: "2002-11-21",
-	emerald: "2004-09-16",
-	firered: "2004-01-29",
-	leafGreen: "2004-01-29",
-
-	// Generation 4
-	diamond: "2006-09-28",
-	pearl: "2006-09-28",
-	platinum: "2008-09-13",
-	heartgold: "2009-09-12",
-	soulsilver: "2009-09-12",
-
-	// Generation 5
-	black: "2010-09-18",
-	white: "2010-09-18",
-	black2: "2012-06-23",
-	white2: "2012-06-23",
-
-	// Generation 6
-	x: "2013-10-12",
-	y: "2013-10-12",
-	omegaruby: "2014-11-21",
-	alphasapphire: "2014-11-21",
-
-	// Generation 7
-	sun: "2016-11-18",
-	moon: "2016-11-18",
-	ultrasun: "2017-11-17",
-	ultramoon: "2017-11-17",
-
-	// Generation 8
-	sword: "2019-11-15",
-	shield: "2019-11-15",
-	brilliantdiamond: "2021-11-19",
-	shiningpearl: "2021-11-19",
-	legendsarceus: "2022-01-28",
-
-	// Generation 9
-	scarlet: "2022-11-18",
-	violet: "2022-11-18",
-};
 
 // Helper function to merge encounter levels and chances
 const mergeEncounters = (encounters: EncounterDetail[]): MergedEncounter[] => {
@@ -114,6 +60,7 @@ const mergeEncounters = (encounters: EncounterDetail[]): MergedEncounter[] => {
 const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 	const versionMap: { [key: string]: EncounterLocation[] } = {};
 
+	// Build a map of version names to locations
 	data?.forEach((location) => {
 		location.version_details.forEach((versionDetail) => {
 			const versionName = versionDetail.version.name;
@@ -132,15 +79,20 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 		});
 	});
 
-	// Sort version keys by their release date
-	const versionKeys = Object.keys(versionMap).sort((a, b) => {
-		const releaseDateA = new Date(versionReleaseDates[a]).getTime();
-		const releaseDateB = new Date(versionReleaseDates[b]).getTime();
-		return releaseDateA - releaseDateB;
-	});
+	// Sort version keys according to versionOrder
+	const versionKeys = useMemo(
+		() =>
+			Object.keys(versionMap).sort(
+				(a, b) =>
+					versionOrder.findIndex((order) => order.name === a) -
+					versionOrder.findIndex((order) => order.name === b)
+			),
+		[versionMap]
+	);
 
 	const [activeTab, setActiveTab] = useState(versionKeys[0]);
-	// Monitor data changes and adjust active tab if the current active tab is not in the version list
+
+	// Adjust active tab if current tab is not in the list
 	useEffect(() => {
 		if (!versionKeys.includes(activeTab)) {
 			setActiveTab(versionKeys[0]); // Fallback to the first version if the active one is not found
@@ -151,7 +103,7 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 		return (
 			<p>
 				Is an evolution, obtainable from trading or is a pokemon from
-				sword&shield/legends Arceus (which pokeApi has no data)
+				sword&shield/legends Arceus (which pokeApi has no data yet)
 			</p>
 		);
 	}

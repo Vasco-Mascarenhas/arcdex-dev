@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo, useEffect } from "react";
 import { Move } from "@/app/interfaces/move/move";
+import { versionGroupOrders } from "@/app/constants/pokemonOrder"; // Import pokemonOrder
 import styles from "./pokemonMoves.module.css";
 
 const PokemonMoves = ({ moves }: { moves: Move[] }) => {
@@ -14,7 +15,14 @@ const PokemonMoves = ({ moves }: { moves: Move[] }) => {
 			});
 		});
 
-		return Array.from(uniqueGroups);
+		// Sort versionGroups according to versionGroupOrders array
+		const sortedGroups = Array.from(uniqueGroups).sort(
+			(a, b) =>
+				versionGroupOrders.findIndex((order) => order.name === a) -
+				versionGroupOrders.findIndex((order) => order.name === b)
+		);
+
+		return sortedGroups;
 	}, [moves]);
 
 	// State to manage selected version group
@@ -45,7 +53,9 @@ const PokemonMoves = ({ moves }: { moves: Move[] }) => {
 						key={version}
 						onClick={() => setSelectedVersionGroup(version)}
 						className={`${
-							selectedVersionGroup == version ? styles.selected : styles.version
+							selectedVersionGroup === version
+								? styles.selected
+								: styles.version
 						}`}
 					>
 						{version.replace(/-/g, " ")}
