@@ -27,7 +27,7 @@ export interface EvolutionChainLink {
 		name: string;
 		url: string;
 	};
-	evolves_to: EvolutionChainLink[]; // This allows recursion for all evolutions
+	evolves_to: EvolutionChainLink[]; // recursive
 	is_baby: boolean;
 	evolution_details: EvolutionDetail[];
 }

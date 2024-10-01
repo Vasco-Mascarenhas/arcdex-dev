@@ -61,12 +61,11 @@ const PokemonEvolution = async ({ evol }: Evolution) => {
 			<h2>Evolution</h2>
 			<div className={styles.evolutions}>
 				{evolutions.map(({ pokemon, evolution_details }) => (
-					<div key={pokemon.id} className={styles.evolution}>
-						<EvolutionDetails
-							pokemon={pokemon}
-							evolutionDetails={evolution_details}
-						/>
-					</div>
+					<EvolutionDetails
+						key={pokemon.id}
+						pokemon={pokemon}
+						evolutionDetails={evolution_details}
+					/>
 				))}
 			</div>
 		</div>

@@ -15,9 +15,8 @@ const EvolutionDetails = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
 	return (
 		<div className={styles.evolutionDetails}>
 			<div className={styles.detailsImg}>
-				<PokemonCard pokemon={pokemon} />
+				<PokemonCard pokemon={pokemon} evolutionDetails={evolutionDetails} />
 			</div>
-			<div className={styles.details}></div>
 		</div>
 	);
 };
