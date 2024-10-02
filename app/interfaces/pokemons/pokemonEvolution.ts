@@ -1,10 +1,16 @@
 export interface EvolutionDetail {
-	gender?: string | null;
+	gender?: number | null;
 	held_item?: { name: string; url: string } | null;
 	item?: { name: string; url: string } | null;
-	known_move?: string | null;
+	known_move?: {
+		name: string;
+		url: string;
+	};
 	known_move_type?: { name: string; url: string } | null;
-	location?: string | null;
+	location?: {
+		name: string;
+		url: string;
+	};
 	min_affection?: number | null;
 	min_beauty?: number | null;
 	min_happiness?: number | null;

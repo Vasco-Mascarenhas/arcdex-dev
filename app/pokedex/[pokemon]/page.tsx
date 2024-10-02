@@ -12,6 +12,7 @@ const page = async ({ params }: { params: { pokemon: string } }) => {
 	}
 
 	const data = await res.json();
+	//console.log(data);
 	return (
 		<div className={styles.pokemon}>
 			<aside className={styles.pokemonData}>

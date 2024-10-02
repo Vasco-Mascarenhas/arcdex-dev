@@ -33,7 +33,7 @@ const PokemonExpanded = async ({
 		<section className={styles.pokemonExpanded}>
 			<PokemonAbilityData abilities={pokemonRes.abilities} />
 			<PokemonHeld heldItem={pokemonRes.held_items} />
-			<PokemonEvolution evol={data.evolution_chain} />
+			<PokemonEvolution evol={data.evolution_chain} currentPokemon={data.id} />
 			<PokemonVariety pokemonVariety={data.varieties} />
 			<PokemonLocation pokemonRes={pokemonRes} />
 			<PokemonMoves moves={pokemonRes.moves} />

@@ -10,8 +10,6 @@ interface PokemonCardProps {
 }
 
 const EvolutionDetails = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
-	console.log(pokemon, evolutionDetails);
-
 	return (
 		<div className={styles.evolutionDetails}>
 			<div className={styles.detailsImg}>
