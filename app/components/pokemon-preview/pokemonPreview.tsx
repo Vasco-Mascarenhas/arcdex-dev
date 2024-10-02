@@ -41,14 +41,27 @@ const PokemonPreview = ({ pokemon }: { pokemon: PokemonShort }) => {
 				/>
 			</div>
 			<div className={styles.previewName}>
-				<h4 className={styles.previewName}>{pokemon.name.replace("-", " ")}</h4>
+				<h4 className={styles.previewName}>
+					{pokemon.name.replaceAll("-", " ")}
+				</h4>
 			</div>
 			<div className={styles.previewId}>
 				<span>#{pokemon.id}</span>
 			</div>
+
 			<div className={styles.previewTypes}>
 				<PokemonTypes types={pokemon.types} />
 			</div>
+			{pokemon.is_legendary && (
+				<div className={styles.legendary}>
+					<span>Legendary</span>
+				</div>
+			)}
+			{pokemon.is_mythical && (
+				<div className={styles.mythical}>
+					<span>Mythical</span>
+				</div>
+			)}
 		</div>
 	);
 };

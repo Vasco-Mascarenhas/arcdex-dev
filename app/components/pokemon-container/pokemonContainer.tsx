@@ -20,7 +20,6 @@ const PokemonContainer = ({
 	const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD);
 	let filteredPokemons: PokemonShort[] = pokemons;
 
-	// Filter the Pokémon data based on the search query
 	if (searchParams.searched) {
 		filteredPokemons = pokemons?.filter((pokemon) =>
 			pokemon.name.toLowerCase().includes(searchParams.searched)
@@ -31,6 +30,17 @@ const PokemonContainer = ({
 		filteredPokemons = filteredPokemons.filter((pokemon) =>
 			pokemon.types.some((type) => type.type.name === searchParams.type)
 		);
+	}
+
+	if (searchParams.rarity) {
+		const rarities = searchParams.rarity.split(",");
+
+		filteredPokemons = filteredPokemons.filter((pokemon) => {
+			return (
+				(rarities.includes("legendary") && pokemon.is_legendary) ||
+				(rarities.includes("mythical") && pokemon.is_mythical)
+			);
+		});
 	}
 
 	const handleScroll = () => {

@@ -58,7 +58,6 @@ const PokemonEvolution = async ({ evol, currentPokemon }: EvolutionProps) => {
 	const currPokemon = evolutions.find(
 		(evol) => evol.pokemon.id === currentPokemon
 	);
-	console.log(currPokemon?.evolution_details);
 	if (evolutions.length == 1) return;
 	return (
 		<div className={styles.pokemonEvolution}>
@@ -74,7 +73,7 @@ const PokemonEvolution = async ({ evol, currentPokemon }: EvolutionProps) => {
 							{currPokemon?.evolution_details[0].trigger && (
 								<div className={styles.detail} key={evolution.trigger.name}>
 									<h4>Trigger</h4>
-									<span>{evolution.trigger.name.replace("-", " ")}</span>
+									<span>{evolution.trigger.name.replaceAll("-", " ")}</span>
 								</div>
 							)}
 							{evolution.gender && (
@@ -86,33 +85,33 @@ const PokemonEvolution = async ({ evol, currentPokemon }: EvolutionProps) => {
 							{evolution.held_item && (
 								<div className={styles.detail}>
 									<h4>Held Item</h4>
-									<span>{evolution.held_item.name.replace("-", " ")}</span>
+									<span>{evolution.held_item.name.replaceAll("-", " ")}</span>
 								</div>
 							)}
 							{evolution.item && (
 								<div className={styles.detail}>
 									<h4>Item</h4>
-									<span>{evolution.item.name.replace("-", " ")}</span>
+									<span>{evolution.item.name.replaceAll("-", " ")}</span>
 								</div>
 							)}
 							{evolution.known_move && (
 								<div className={styles.detail}>
 									<h4>Move Known</h4>
-									<span>{evolution.known_move.name.replace("-", " ")}</span>
+									<span>{evolution.known_move.name.replaceAll("-", " ")}</span>
 								</div>
 							)}
 							{evolution.known_move_type && (
 								<div className={styles.detail}>
 									<h4>Move Type Known</h4>
 									<span>
-										{evolution.known_move_type.name.replace("-", " ")}
+										{evolution.known_move_type.name.replaceAll("-", " ")}
 									</span>
 								</div>
 							)}
 							{evolution.location && (
 								<div className={styles.detail}>
 									<h4>Location</h4>
-									<span>{evolution.location.name.replace("-", " ")}</span>
+									<span>{evolution.location.name.replaceAll("-", " ")}</span>
 								</div>
 							)}
 							{evolution.min_affection && (
@@ -148,13 +147,13 @@ const PokemonEvolution = async ({ evol, currentPokemon }: EvolutionProps) => {
 							{evolution.party_species && (
 								<div className={styles.detail}>
 									<h4>Party Species</h4>
-									<span>{evolution.party_species.replace("-", " ")}</span>
+									<span>{evolution.party_species.replaceAll("-", " ")}</span>
 								</div>
 							)}
 							{evolution.party_type && (
 								<div className={styles.detail}>
 									<h4>Party Type</h4>
-									<span>{evolution.party_type.replace("-", " ")}</span>
+									<span>{evolution.party_type.replaceAll("-", " ")}</span>
 								</div>
 							)}
 							{evolution.relative_physical_stats && (

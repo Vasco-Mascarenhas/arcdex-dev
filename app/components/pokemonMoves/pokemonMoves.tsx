@@ -69,7 +69,7 @@ const PokemonMoves = ({ moves }: { moves: Move[] }) => {
 						move.version_group_details.length > 0 ? (
 							<div key={move.move.name + index} className={styles.move}>
 								<span className={styles.moveName}>
-									{move.move.name.replace("-", " ")}
+									{move.move.name.replaceAll("-", " ")}
 								</span>
 								{move.version_group_details.map((method) => (
 									<div
@@ -80,7 +80,8 @@ const PokemonMoves = ({ moves }: { moves: Move[] }) => {
 									>
 										<span>Level: {method.level_learned_at}</span>
 										<span>
-											Method: {method.move_learn_method.name.replace("-", " ")}
+											Method:{" "}
+											{method.move_learn_method.name.replaceAll("-", " ")}
 										</span>
 									</div>
 								))}

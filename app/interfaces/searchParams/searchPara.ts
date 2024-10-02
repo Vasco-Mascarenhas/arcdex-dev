@@ -3,4 +3,5 @@ export interface SearchParams {
 	expanded?: boolean;
 	type?: string;
 	searched: string;
+	rarity: string;
 }

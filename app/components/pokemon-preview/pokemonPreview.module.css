@@ -23,3 +23,11 @@
 .previewId {
 	color: var(--accent);
 }
+
+.legendary span {
+	color: #ffd300;
+}
+
+.mythical span {
+	color: #ad054f;
+}
