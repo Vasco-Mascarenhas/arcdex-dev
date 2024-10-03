@@ -174,11 +174,11 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 												{detail.move_learn_method.name === "level-up" &&
 													detail.level_learned_at > 0 && (
 														<>
-															<span>Level: {detail.level_learned_at}</span>
+															<span>lvl {detail.level_learned_at}</span>
 															{move.power != null && (
-																<span>Power: {move.power}</span>
+																<span>pow: {move.power}</span>
 															)}
-															<span>PP: {move.pp}</span>
+															<span>pp: {move.pp}</span>
 															<span
 																style={{
 																	backgroundColor: getTypeColor(move.type),
@@ -188,7 +188,7 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 																{move.type}
 															</span>
 															<span>
-																Accuracy:{" "}
+																acc:{" "}
 																{move.accuracy != null ? move.accuracy : "-"}
 															</span>
 														</>
@@ -198,9 +198,9 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 												{detail.move_learn_method.name === "machine" && (
 													<>
 														<span>
-															Power: {move.power != null ? move.power : "-"}
+															pow: {move.power != null ? move.power : "-"}
 														</span>
-														<span>PP: {move.pp}</span>
+														<span>pp: {move.pp}</span>
 														<span
 															style={{
 																backgroundColor: getTypeColor(move.type),
@@ -210,8 +210,7 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 															{move.type}
 														</span>
 														<span>
-															Accuracy:{" "}
-															{move.accuracy != null ? move.accuracy : "-"}
+															acc: {move.accuracy != null ? move.accuracy : "-"}
 														</span>
 													</>
 												)}
@@ -220,9 +219,9 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 												{detail.move_learn_method.name === "tutor" && (
 													<>
 														<span>
-															Power: {move.power != null ? move.power : "-"}
+															pow: {move.power != null ? move.power : "-"}
 														</span>
-														<span>PP: {move.pp}</span>
+														<span>pp: {move.pp}</span>
 														<span
 															style={{
 																backgroundColor: getTypeColor(move.type),
@@ -232,8 +231,7 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 															{move.type}
 														</span>
 														<span>
-															Accuracy:{" "}
-															{move.accuracy != null ? move.accuracy : "-"}
+															acc: {move.accuracy != null ? move.accuracy : "-"}
 														</span>
 													</>
 												)}
@@ -242,10 +240,10 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 												{detail.move_learn_method.name === "egg" && (
 													<>
 														<span>
-															Power: {move.power != null ? move.power : "-"}
+															pow: {move.power != null ? move.power : "-"}
 														</span>
 
-														<span>PP: {move.pp}</span>
+														<span>pp: {move.pp}</span>
 														<span
 															style={{
 																backgroundColor: getTypeColor(move.type),
@@ -255,8 +253,7 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 															{move.type}
 														</span>
 														<span>
-															Accuracy:{" "}
-															{move.accuracy != null ? move.accuracy : "-"}
+															acc: {move.accuracy != null ? move.accuracy : "-"}
 														</span>
 													</>
 												)}

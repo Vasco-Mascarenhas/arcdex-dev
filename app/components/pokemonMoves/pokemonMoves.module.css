@@ -52,6 +52,7 @@
 
 .moveName {
 	color: var(--accent);
+	min-width: 110px;
 }
 
 .selected {
@@ -88,4 +89,12 @@
 	text-transform: capitalize;
 	color: #fff;
 	border-radius: 4px;
+}
+
+.method {
+	width: calc(90% - 100px);
+}
+.method span {
+	min-width: 50px;
+	text-align: center;
 }
