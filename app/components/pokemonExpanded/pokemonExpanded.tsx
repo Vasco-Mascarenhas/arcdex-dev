@@ -29,6 +29,7 @@ const PokemonExpanded = async ({
 		});
 	}
 	const data = await res.json();
+
 	return (
 		<section className={styles.pokemonExpanded}>
 			<PokemonAbilityData abilities={pokemonRes.abilities} />
