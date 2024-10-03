@@ -12,6 +12,11 @@
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
 	position: relative;
+	padding: 10px;
+}
+
+.ability p {
+	text-align: center;
 }
 
 .name {
@@ -36,6 +41,7 @@
 
 .pokemons {
 	display: flex;
+	gap: 10px;
 }
 .pokemon {
 	text-align: center;
@@ -44,4 +50,5 @@
 .pokemonName {
 	text-transform: capitalize;
 	padding-top: 5px;
+	font-size: 13px;
 }

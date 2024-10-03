@@ -4,12 +4,24 @@ import React from "react";
 import styles from "./abilityPreview.module.css";
 import { AbilityData } from "@/app/interfaces/abilities/ability";
 import Image from "next/image";
-import { getId } from "@/app/utility/getid";
+import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 
-const AbilityPreview = ({ ability }: { ability: AbilityData }) => {
+interface AbilityPreviewProps {
+	ability: AbilityData;
+	searchParams: SearchParams;
+}
+
+const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 	const flavor = ability.flavor_text_entries.find(
 		(flavor) => flavor.language.name === "en"
 	);
+
+	/*
+	const effect = ability.effect_entries.find(
+		(entry) => entry.language.name === "en"
+	);
+	*/
+
 	const handleImgError = async (
 		e: React.SyntheticEvent<HTMLImageElement>,
 		id: number
@@ -29,6 +41,30 @@ const AbilityPreview = ({ ability }: { ability: AbilityData }) => {
 		}
 	};
 
+	// Start with the original list of Pokémon
+	let filteredPokemons = ability.pokemon;
+
+	// Filter based on searchParams.type if it exists
+	if (searchParams.type) {
+		filteredPokemons = ability.pokemon.filter((poke) =>
+			poke.pokemon.types.some((type) => type.type.name === searchParams.type)
+		);
+	}
+
+	// Filter based on searchParams.rarity if it exists
+	if (searchParams.rarity) {
+		const rarities = searchParams.rarity.split(",");
+
+		filteredPokemons = filteredPokemons.filter((poke) => {
+			const isLegendary = poke.pokemon.is_legendary;
+			const isMythical = poke.pokemon.is_mythical;
+			return (
+				(rarities.includes("legendary") && isLegendary) ||
+				(rarities.includes("mythic") && isMythical)
+			);
+		});
+	}
+
 	return (
 		<div className={styles.ability}>
 			<h3 className={styles.name}>{ability.name.replaceAll("-", " ")}</h3>
@@ -38,20 +74,19 @@ const AbilityPreview = ({ ability }: { ability: AbilityData }) => {
 				{ability.generation.name.replaceAll("-", " ")}
 			</span>
 			<div className={styles.pokemons}>
-				{ability.pokemon.slice(0, 3).map((poke) => (
-					<div key={poke.pokemon.name} className={styles.pokemon}>
+				{filteredPokemons.slice(0, 3).map((poke, index) => (
+					<div
+						key={ability.name + poke.pokemon.name + index}
+						className={styles.pokemon}
+					>
 						<Image
-							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${getId(
-								poke.pokemon.url
-							)}.gif`}
-							width={100}
-							height={70}
+							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${poke.pokemon.id}.gif`}
+							width={80}
+							height={50}
 							alt={`${poke.pokemon.name} image`}
 							unoptimized
 							className={styles.pokemonImg}
-							onError={(e) =>
-								handleImgError(e, Number(getId(poke.pokemon.url)))
-							}
+							onError={(e) => handleImgError(e, poke.pokemon.id)}
 						/>
 						<h4 className={styles.pokemonName}>
 							{poke.pokemon.name.replaceAll("-", " ")}

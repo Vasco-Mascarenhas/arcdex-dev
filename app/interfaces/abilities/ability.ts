@@ -1,3 +1,5 @@
+import { PokemonShort } from "../pokemons/pokemonShort";
+
 export interface AbilityData {
 	effect_changes: [];
 	effect_entries: [
@@ -39,13 +41,9 @@ export interface AbilityData {
 			name: string;
 		}
 	];
-	pokemon: [
-		{
-			is_hidden: boolean;
-			pokemon: {
-				name: string;
-				url: string;
-			};
-		}
-	];
+	pokemon: Array<{
+		// Change here
+		is_hidden: boolean;
+		pokemon: PokemonShort;
+	}>;
 }
