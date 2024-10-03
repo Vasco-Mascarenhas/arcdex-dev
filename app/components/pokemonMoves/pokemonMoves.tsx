@@ -5,6 +5,7 @@ import { versionGroupOrders } from "@/app/constants/pokemonOrder";
 import styles from "./pokemonMoves.module.css";
 import movesData from "../../data/moves.json";
 import { MoveData } from "@/app/interfaces/move/moveData";
+import { getTypeColor } from "@/app/utility/getTypeColors";
 
 // Create a lookup object for moves data
 const movesLookup = movesData.reduce((lookup, move: MoveData) => {
@@ -178,7 +179,14 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 																<span>Power: {move.power}</span>
 															)}
 															<span>PP: {move.pp}</span>
-															<span>Type: {move.type}</span>
+															<span
+																style={{
+																	backgroundColor: getTypeColor(move.type),
+																}}
+																className={styles.type}
+															>
+																{move.type}
+															</span>
 															<span>
 																Accuracy:{" "}
 																{move.accuracy != null ? move.accuracy : "-"}
@@ -193,7 +201,14 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 															Power: {move.power != null ? move.power : "-"}
 														</span>
 														<span>PP: {move.pp}</span>
-														<span>Type: {move.type}</span>
+														<span
+															style={{
+																backgroundColor: getTypeColor(move.type),
+															}}
+															className={styles.type}
+														>
+															{move.type}
+														</span>
 														<span>
 															Accuracy:{" "}
 															{move.accuracy != null ? move.accuracy : "-"}
@@ -208,7 +223,14 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 															Power: {move.power != null ? move.power : "-"}
 														</span>
 														<span>PP: {move.pp}</span>
-														<span>Type: {move.type}</span>
+														<span
+															style={{
+																backgroundColor: getTypeColor(move.type),
+															}}
+															className={styles.type}
+														>
+															{move.type}
+														</span>
 														<span>
 															Accuracy:{" "}
 															{move.accuracy != null ? move.accuracy : "-"}
@@ -224,7 +246,14 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 														</span>
 
 														<span>PP: {move.pp}</span>
-														<span>Type: {move.type}</span>
+														<span
+															style={{
+																backgroundColor: getTypeColor(move.type),
+															}}
+															className={styles.type}
+														>
+															{move.type}
+														</span>
 														<span>
 															Accuracy:{" "}
 															{move.accuracy != null ? move.accuracy : "-"}
