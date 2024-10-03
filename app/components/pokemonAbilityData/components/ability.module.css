@@ -14,3 +14,13 @@
 .ability span {
 	color: var(--accent);
 }
+
+.abilityName {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+}
+
+.abilityName:hover {
+	color: var(--accent);
+}

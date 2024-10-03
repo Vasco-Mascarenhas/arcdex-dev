@@ -10,8 +10,6 @@ interface PokemonVersion {
 }
 
 const PokemonVersion = async ({ versions }: { versions: PokemonVersion[] }) => {
-	console.log(versions);
-
 	if (versions.length === 0) return;
 	return (
 		<div className={styles.versions}>
