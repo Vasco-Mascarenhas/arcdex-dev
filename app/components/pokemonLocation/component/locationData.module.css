@@ -88,3 +88,9 @@
 .locationName {
 	font-weight: bold;
 }
+
+.conditions {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}

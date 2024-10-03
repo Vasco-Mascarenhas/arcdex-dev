@@ -4,19 +4,19 @@ import styles from "./locationData.module.css";
 import {
 	EncounterLocation,
 	EncounterDetail,
+	EncounterConditionValue,
 } from "@/app/interfaces/pokemons/pokemonLocation";
 import { versionOrder } from "@/app/constants/pokemonOrder";
 
-// Define a type for the merged encounter
 interface MergedEncounter {
 	min_level: number;
 	max_level: number;
 	min_chance: number;
 	max_chance: number;
 	method: { name: string };
+	conditions: EncounterConditionValue[];
 }
 
-// Helper function to merge encounter levels and chances
 const mergeEncounters = (encounters: EncounterDetail[]): MergedEncounter[] => {
 	const encounterMap: { [key: string]: MergedEncounter } = {};
 
@@ -31,9 +31,10 @@ const mergeEncounters = (encounters: EncounterDetail[]): MergedEncounter[] => {
 				max_level: encounter.max_level,
 				min_chance: encounter.chance,
 				max_chance: encounter.chance,
+				conditions: encounter.condition_values, // Store the conditions
 			};
 		} else {
-			// Merge level range and chance
+			// Merge level range, chance, and conditions
 			encounterMap[key].min_level = Math.min(
 				encounterMap[key].min_level,
 				encounter.min_level
@@ -50,17 +51,21 @@ const mergeEncounters = (encounters: EncounterDetail[]): MergedEncounter[] => {
 				encounterMap[key].max_chance,
 				encounter.chance
 			);
+			encounterMap[key].conditions = Array.from(
+				new Set([
+					...encounterMap[key].conditions.map((cond) => cond.name),
+					...encounter.condition_values.map((cond) => cond.name),
+				])
+			).map((name) => ({ name } as EncounterConditionValue));
 		}
 	});
 
-	// Return the merged encounters as an array
 	return Object.values(encounterMap);
 };
 
 const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 	const versionMap: { [key: string]: EncounterLocation[] } = {};
 
-	// Build a map of version names to locations
 	data?.forEach((location) => {
 		location.version_details.forEach((versionDetail) => {
 			const versionName = versionDetail.version.name;
@@ -79,7 +84,6 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 		});
 	});
 
-	// Sort version keys according to versionOrder
 	const versionKeys = useMemo(
 		() =>
 			Object.keys(versionMap).sort(
@@ -92,10 +96,9 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 
 	const [activeTab, setActiveTab] = useState(versionKeys[0]);
 
-	// Adjust active tab if current tab is not in the list
 	useEffect(() => {
 		if (!versionKeys.includes(activeTab)) {
-			setActiveTab(versionKeys[0]); // Fallback to the first version if the active one is not found
+			setActiveTab(versionKeys[0]);
 		}
 	}, [data, versionKeys, activeTab]);
 
@@ -110,7 +113,6 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 
 	return (
 		<div className={styles.pokemonLocation}>
-			{/* Tabs for each game version */}
 			<div className={styles.tabContainer}>
 				{versionKeys.map((version, index) => (
 					<button
@@ -123,7 +125,6 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 				))}
 			</div>
 
-			{/* Tab Content for the selected version */}
 			{activeTab && (
 				<div className={styles.tabContent}>
 					<table className={styles.locationTable}>
@@ -133,6 +134,7 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 								<th>Encounter Method</th>
 								<th>Level Range</th>
 								<th>Chance</th>
+								<th>Conditions</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -160,6 +162,15 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 											{encounter.min_chance === encounter.max_chance
 												? `${encounter.min_chance}%`
 												: `${encounter.min_chance}% - ${encounter.max_chance}%`}
+										</td>
+										<td className={styles.conditions}>
+											{encounter.conditions.length > 0
+												? encounter.conditions.map((cond, index) => (
+														<span key={index}>
+															{cond.name.replaceAll("-", " ")}
+														</span>
+												  ))
+												: "None"}
 										</td>
 									</tr>
 								));
