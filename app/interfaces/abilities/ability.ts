@@ -1,7 +1,30 @@
 import { PokemonShort } from "../pokemons/pokemonShort";
 
 export interface AbilityData {
-	effect_changes: [];
+	effect_changes: [
+		{
+			effect_entries: [
+				{
+					effect: string;
+					language: {
+						name: string;
+						url: string;
+					};
+				},
+				{
+					effect: string;
+					language: {
+						name: string;
+						url: string;
+					};
+				}
+			];
+			version_group: {
+				name: string;
+				url: string;
+			};
+		}
+	];
 	effect_entries: [
 		{
 			effect: string;
