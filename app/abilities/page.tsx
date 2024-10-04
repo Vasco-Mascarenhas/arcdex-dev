@@ -35,32 +35,34 @@ const Page = ({ searchParams }: { searchParams: SearchParams }) => {
 	const abilities: AbilityData[] = abilitiesData as unknown as AbilityData[];
 	let filteredAbilities: AbilityData[] = abilities;
 
-	if (searchParams.searched) {
-		filteredAbilities = abilities.filter((ability) =>
-			ability.name.includes(searchParams.searched)
-		);
-	}
+	filteredAbilities = abilities.filter((ability) => {
+		// Check if the ability matches the searched term, if provided
+		if (
+			searchParams.searched &&
+			!ability.name.includes(searchParams.searched)
+		) {
+			return false;
+		}
 
-	if (searchParams.type) {
-		filteredAbilities = abilities.filter((ability) =>
-			ability.pokemon.some((poke) =>
-				poke.pokemon.types.some((type) => type.type.name === searchParams.type)
-			)
-		);
-	}
-	if (searchParams.rarity) {
-		const rarities = searchParams.rarity.split(",");
+		// Check if the ability matches both the type and rarity conditions (if provided)
+		return ability.pokemon.some((poke) => {
+			const matchesType =
+				!searchParams.type ||
+				poke.pokemon.types.some((type) => type.type.name === searchParams.type);
 
-		filteredAbilities = abilities.filter((ability) => {
-			return ability.pokemon.some((poke) => {
-				return (
-					(rarities.includes("legendary") &&
-						poke.pokemon.is_legendary === true) ||
-					(rarities.includes("mythic") && poke.pokemon.is_mythical === true)
-				);
-			});
+			const matchesRarity =
+				!searchParams.rarity ||
+				searchParams.rarity.split(",").some((rarity) => {
+					return (
+						(rarity === "legendary" && poke.pokemon.is_legendary) ||
+						(rarity === "mythic" && poke.pokemon.is_mythical)
+					);
+				});
+
+			// Include the Pokémon if it matches both the type and rarity conditions
+			return matchesType && matchesRarity;
 		});
-	}
+	});
 
 	return (
 		<div className={styles.abilities}>

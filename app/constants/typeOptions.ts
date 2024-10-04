@@ -17,4 +17,5 @@ export const typeOptions = [
 	{ value: "Dragon", label: "Dragon" },
 	{ value: "Dark", label: "Dark" },
 	{ value: "Fairy", label: "Fairy" },
+	{ value: "Water", label: "Water" },
 ];

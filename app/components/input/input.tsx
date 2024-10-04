@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = ({ placeholder }) => {
 	useEffect(() => {
 		const params = new URLSearchParams(searchParams);
 		if (debouncedValue) {
-			params.set("searched", debouncedValue);
+			params.set("searched", debouncedValue.replaceAll(" ", "-"));
 		} else {
 			params.delete("searched");
 		}
