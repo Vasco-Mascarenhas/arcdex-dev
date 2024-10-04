@@ -60,7 +60,7 @@ const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 			const isMythical = poke.pokemon.is_mythical;
 			return (
 				(rarities.includes("legendary") && isLegendary) ||
-				(rarities.includes("mythic") && isMythical)
+				(rarities.includes("mythical") && isMythical)
 			);
 		});
 	}

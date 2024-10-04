@@ -12,7 +12,7 @@ const INITIAL_LOAD = 30;
 const LOAD_INCREMENT = 30;
 
 const Page = ({ searchParams }: { searchParams: SearchParams }) => {
-	const options = ["legendary", "mythic"];
+	const options = ["mythical", "legendary"];
 
 	const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD);
 	const handleScroll = () => {
@@ -55,7 +55,7 @@ const Page = ({ searchParams }: { searchParams: SearchParams }) => {
 				searchParams.rarity.split(",").some((rarity) => {
 					return (
 						(rarity === "legendary" && poke.pokemon.is_legendary) ||
-						(rarity === "mythic" && poke.pokemon.is_mythical)
+						(rarity === "mythical" && poke.pokemon.is_mythical)
 					);
 				});
 

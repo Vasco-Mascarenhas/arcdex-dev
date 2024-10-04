@@ -1,5 +1,6 @@
 .abilities {
 	min-height: 100vh;
+	padding-block: 20px;
 }
 .abilityContainer {
 	display: grid;
