@@ -10,6 +10,7 @@ const nextConfig = {
 				pathname: "/**", // Allow all paths from the hostname
 			},
 		],
+		minimumCacheTTL: 2592000,
 	},
 };
 

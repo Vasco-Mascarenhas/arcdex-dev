@@ -50,7 +50,7 @@ const NavBar = () => {
 					<Image
 						className={styles.logo}
 						src={`/navbar/${route.name}.png`}
-						alt={route.name}
+						alt={route.name + " link"}
 						width={50}
 						height={50}
 					/>
