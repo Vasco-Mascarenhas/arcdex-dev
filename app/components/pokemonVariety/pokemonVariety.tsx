@@ -21,7 +21,7 @@ const PokemonVariety = ({
 		<div className={styles.pokemonVarieties}>
 			<h2>Varieties</h2>
 			<div className={styles.varieties}>
-				{matchingPokemons.slice(1).map((pokemon) => (
+				{matchingPokemons.map((pokemon) => (
 					<PokemonCard key={pokemon.name} pokemon={pokemon} />
 				))}
 			</div>

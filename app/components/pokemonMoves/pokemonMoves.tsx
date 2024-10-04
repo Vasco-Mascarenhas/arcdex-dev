@@ -171,28 +171,26 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 												key={detail.move_learn_method.name + detailIndex}
 											>
 												{/* Show level only if it's a "level-up" move */}
-												{detail.move_learn_method.name === "level-up" &&
-													detail.level_learned_at > 0 && (
-														<>
-															<span>lvl {detail.level_learned_at}</span>
-															{move.power != null && (
-																<span>pow: {move.power}</span>
-															)}
-															<span>pp: {move.pp}</span>
-															<span
-																style={{
-																	backgroundColor: getTypeColor(move.type),
-																}}
-																className={styles.type}
-															>
-																{move.type}
-															</span>
-															<span>
-																acc:{" "}
-																{move.accuracy != null ? move.accuracy : "-"}
-															</span>
-														</>
-													)}
+												{detail.move_learn_method.name === "level-up" && (
+													<>
+														<span>lvl {detail.level_learned_at}</span>
+														{move.power != null && (
+															<span>pow: {move.power}</span>
+														)}
+														<span>pp: {move.pp}</span>
+														<span
+															style={{
+																backgroundColor: getTypeColor(move.type),
+															}}
+															className={styles.type}
+														>
+															{move.type}
+														</span>
+														<span>
+															acc: {move.accuracy != null ? move.accuracy : "-"}
+														</span>
+													</>
+												)}
 
 												{/* Show move details for machine method */}
 												{detail.move_learn_method.name === "machine" && (

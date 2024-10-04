@@ -165,7 +165,7 @@ const PokemonEvolution = async ({ evol, currentPokemon }: EvolutionProps) => {
 							{evolution.time_of_day && (
 								<div className={styles.detail}>
 									<h4>Time Of Day</h4>
-									<span>{currPokemon.evolution_details[0].time_of_day}</span>
+									<span>{evolution.time_of_day}</span>
 								</div>
 							)}
 							{evolution.trade_species && (
