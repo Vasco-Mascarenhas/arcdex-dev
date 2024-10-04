@@ -32,7 +32,7 @@ const Page = ({ searchParams }: { searchParams: SearchParams }) => {
 		};
 	}, []);
 
-	const abilities: AbilityData[] = abilitiesData as AbilityData[];
+	const abilities: AbilityData[] = abilitiesData as unknown as AbilityData[];
 	let filteredAbilities: AbilityData[] = abilities;
 
 	if (searchParams.searched) {
