@@ -174,9 +174,11 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 												{detail.move_learn_method.name === "level-up" && (
 													<>
 														<span>lvl {detail.level_learned_at}</span>
-														{move.power != null && (
-															<span>pow: {move.power}</span>
-														)}
+
+														<span>
+															pow: {move.power === null ? "-" : move.power}
+														</span>
+
 														<span>pp: {move.pp}</span>
 														<span
 															style={{

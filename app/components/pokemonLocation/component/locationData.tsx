@@ -105,8 +105,8 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 	if (!data || data.length === 0) {
 		return (
 			<p>
-				Is an evolution, obtainable from trading or is a pokemon from
-				sword&shield/legends Arceus (which pokeApi has no data yet)
+				Is an evolution, mega-evolution, obtainable from trading or is a pokemon
+				from sword&shield/legends Arceus (which pokeApi does not have much data)
 			</p>
 		);
 	}
