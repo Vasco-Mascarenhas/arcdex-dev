@@ -5,6 +5,7 @@ import styles from "./abilityPreview.module.css";
 import { AbilityData } from "@/app/interfaces/abilities/ability";
 import Image from "next/image";
 import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
+import Link from "next/link";
 
 interface AbilityPreviewProps {
 	ability: AbilityData;
@@ -66,7 +67,7 @@ const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 	}
 
 	return (
-		<div className={styles.ability}>
+		<Link href={`/abilities/${ability.name}`} className={styles.ability}>
 			<h3 className={styles.name}>{ability.name.replaceAll("-", " ")}</h3>
 			<span className={styles.id}>#{ability.id}</span>
 			<p className={styles.flavor}>{flavor?.flavor_text}</p>
@@ -94,7 +95,7 @@ const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 					</div>
 				))}
 			</div>
-		</div>
+		</Link>
 	);
 };
 

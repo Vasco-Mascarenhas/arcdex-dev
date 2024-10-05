@@ -16,7 +16,7 @@ const page = async ({ params }: { params: { pokemon: string } }) => {
 	//console.log(data);
 	return (
 		<div className={styles.pokemon}>
-			<GoBack />
+			<GoBack placeholder="Pokedex" />
 			<div className={styles.container}>
 				<aside className={styles.pokemonData}>
 					<PokemonDataContainer pokemonRes={data} />
