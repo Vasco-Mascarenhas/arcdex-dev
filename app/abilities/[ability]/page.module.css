@@ -1,0 +1,47 @@
+.ability {
+	display: flex;
+	flex-direction: column;
+}
+
+.pokemons {
+	display: grid;
+	gap: 20px;
+	padding-block: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	justify-items: center;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.container {
+	background: var(--secondary);
+	border-radius: 8px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: fit-content;
+	margin-bottom: 20px;
+}
+
+.name {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	text-transform: capitalize;
+}
+
+.meta {
+	display: flex;
+	gap: 5px;
+	color: var(--primary);
+}
+
+.description h3 {
+	padding-bottom: 5px;
+}
+.description p {
+	background: var(--background);
+	padding: 10px;
+	border-radius: 8px;
+}

@@ -25,8 +25,8 @@ export default function RootLayout({
 }>) {
 	return (
 		<ThemeProvider>
-			<html lang="en">
-				<body className={`${roboto.className}`}>
+			<html lang="en" className={`${roboto.className}`}>
+				<body>
 					<header className="layout-header">
 						<NavBar />
 					</header>
