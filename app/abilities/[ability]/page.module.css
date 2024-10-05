@@ -14,8 +14,9 @@
 }
 
 .container {
-	background: var(--secondary);
+	background: var(--background);
 	border-radius: 8px;
+	box-shadow: 0 0 3px var(--accent);
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
@@ -39,9 +40,4 @@
 
 .description h3 {
 	padding-bottom: 5px;
-}
-.description p {
-	background: var(--background);
-	padding: 10px;
-	border-radius: 8px;
 }
