@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./page.module.css";
 import PokemonDataContainer from "@/app/components/pokemonDataContainer/pokemonDataContainer";
 import PokemonExpanded from "@/app/components/pokemonExpanded/pokemonExpanded";
+import GoBack from "@/app/components/goBack/goBack";
 const page = async ({ params }: { params: { pokemon: string } }) => {
 	let res;
 	console.log(params.pokemon);
@@ -15,12 +16,15 @@ const page = async ({ params }: { params: { pokemon: string } }) => {
 	//console.log(data);
 	return (
 		<div className={styles.pokemon}>
-			<aside className={styles.pokemonData}>
-				<PokemonDataContainer pokemonRes={data} />
-			</aside>
-			<section className={styles.pokemonSection}>
-				<PokemonExpanded pokemonRes={data} />
-			</section>
+			<GoBack />
+			<div className={styles.container}>
+				<aside className={styles.pokemonData}>
+					<PokemonDataContainer pokemonRes={data} />
+				</aside>
+				<section className={styles.pokemonSection}>
+					<PokemonExpanded pokemonRes={data} />
+				</section>
+			</div>
 		</div>
 	);
 };

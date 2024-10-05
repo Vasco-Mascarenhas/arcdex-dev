@@ -48,7 +48,12 @@ const NavBar = () => {
 					key={route.name}
 					prefetch={true}
 					className={`${styles.link} ${
-						pathName === route.link ? styles.active : ""
+						// Special handling for home route
+						route.link === "/"
+							? pathName === "/" && styles.active
+							: pathName.startsWith(route.link)
+							? styles.active
+							: ""
 					}`}
 				>
 					<Image
