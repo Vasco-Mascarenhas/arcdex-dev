@@ -14,18 +14,22 @@ const selectStyle: StylesConfig<Option, false> = {
 	}),
 	control: (provided) => ({
 		...provided,
-		backgroundColor: "var(--secondary)",
+		backgroundColor: "var(--background)",
 		borderColor: "var(--accent)",
 		minHeight: "100%",
 	}),
 	option: (provided, state) => ({
 		...provided,
 		backgroundColor: state.isSelected
-			? "var(--primary)"
+			? "var(--accent)"
 			: state.isFocused
-			? "var(--primary)"
-			: "var(--secondary)",
-		color: state.isSelected ? "var(--text)" : "var(--text)",
+			? "var(--accent)"
+			: "var(--background)",
+		color: state.isSelected
+			? "var(--white)"
+			: state.isFocused
+			? "var(--white)"
+			: "var(--text)",
 		padding: "10px",
 		cursor: "pointer",
 	}),

@@ -1,9 +1,15 @@
 .light {
 	--text: #101723;
-	--background: #dce3ef;
+	--background: #fff;
 	--primary: #31445e;
-	--secondary: #98adcd;
+	--secondary: #dce3ef;
 	--accent: #43608e;
+}
+
+:root {
+	--red: #ef233c;
+	--darkRed: #d90429;
+	--white: #fff;
 }
 
 .dark {

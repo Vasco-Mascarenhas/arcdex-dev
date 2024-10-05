@@ -5,12 +5,12 @@ import styles from "./navbar.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-interface Routes {
+interface Route {
 	name: string;
 	link: string;
 }
 
-const routes: Routes[] = [
+const routes: Route[] = [
 	{
 		name: "home",
 		link: "/",
@@ -26,6 +26,10 @@ const routes: Routes[] = [
 	{
 		name: "moves",
 		link: "/moves",
+	},
+	{
+		name: "items",
+		link: "/items",
 	},
 ];
 
