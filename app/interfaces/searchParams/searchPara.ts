@@ -4,4 +4,5 @@ export interface SearchParams {
 	type?: string;
 	searched: string;
 	rarity: string;
+	category: string;
 }

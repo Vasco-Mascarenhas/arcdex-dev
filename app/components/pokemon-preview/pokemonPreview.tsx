@@ -12,7 +12,7 @@ const PokemonPreview = ({ pokemon }: { pokemon: PokemonShort }) => {
 	) => {
 		const target = e.target as HTMLImageElement;
 		const primarySrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-		const fallbackSrc = "/navbar/abilities.png";
+		const fallbackSrc = "/notfound/404.png";
 
 		try {
 			const response = await fetch(primarySrc);

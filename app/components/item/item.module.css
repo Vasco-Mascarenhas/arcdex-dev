@@ -2,6 +2,10 @@
 	background: var(--background);
 	border-radius: 8px;
 	padding: 10px;
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .title {
