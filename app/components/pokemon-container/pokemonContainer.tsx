@@ -13,6 +13,7 @@ const PokemonContainer = ({
 	searchParams,
 	pokemons,
 }: PokemonContainerProps) => {
+	console.log(searchParams);
 	console.log(pokemons);
 	return (
 		<div className={styles.pokemons}>
