@@ -5,7 +5,11 @@ import PokemonContainer from "../pokemon-container/pokemonContainer";
 import styles from "./pokedexContainer.module.css";
 import pokemons from "../../data/pokemons.json";
 import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
-const PokedexContainer = ({ searchParams }: { searchParams: SearchParams }) => {
+const PokedexContainer = async ({
+	searchParams,
+}: {
+	searchParams: SearchParams;
+}) => {
 	const rare = ["mythical", "legendary"];
 
 	return (
