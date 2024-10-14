@@ -22,6 +22,10 @@ const PokemonLocation = async ({
 
 	const data: EncounterLocation[] = await res.json(); // Type the response data
 
+	if (!data || data.length === 0) {
+		return "";
+	}
+
 	return (
 		<div className={styles.pokemonLocation}>
 			<h2>Locations</h2>

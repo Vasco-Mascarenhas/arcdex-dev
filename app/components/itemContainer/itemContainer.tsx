@@ -20,7 +20,7 @@ const ItemContainer = async ({ items, searchParams }: ItemContainerProps) => {
 
 			if (res.ok) {
 				const data = await res.json();
-				// Assuming data.items is the array of items in the response
+
 				fetchedItems = data.items as ItemRes[];
 			} else {
 				return <div>An error occurred</div>;

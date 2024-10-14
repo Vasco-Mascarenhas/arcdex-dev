@@ -6,18 +6,36 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	position: relative;
 }
 
 .title {
 	display: flex;
-	gap: 10px;
+	gap: 5px;
 	align-items: center;
 }
 
+.title .id {
+	color: var(--accent);
+}
+.title .category {
+	text-transform: capitalize;
+	position: absolute;
+	right: 10px;
+	color: var(--accent);
+}
 .content {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
+}
+.content .cost {
+	color: var(--accent);
+}
+
+.content .meta {
+	display: flex;
+	gap: 15px;
 }
 
 .item:hover .title {

@@ -102,15 +102,6 @@ const LocationData = ({ data }: { data: EncounterLocation[] }) => {
 		}
 	}, [data, versionKeys, activeTab]);
 
-	if (!data || data.length === 0) {
-		return (
-			<p>
-				Is an evolution, mega-evolution, obtainable from trading or is a pokemon
-				from sword&shield/legends Arceus (which pokeApi does not have much data)
-			</p>
-		);
-	}
-
 	return (
 		<div className={styles.pokemonLocation}>
 			<div className={styles.tabContainer}>

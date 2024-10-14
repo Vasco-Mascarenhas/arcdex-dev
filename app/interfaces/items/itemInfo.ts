@@ -20,6 +20,7 @@ export interface ItemData {
 				name: string;
 				url: string;
 			};
+			short_effect: string;
 		}
 	];
 	flavor_text_entries: [
