@@ -1,7 +1,7 @@
 import { Move } from "@/app/interfaces/move/move";
 import { PokemonType } from "./pokemonType";
 import { HeldItem } from "../heldItem/heldItem";
-
+import { PokemonSpecies } from "./pokemonSpecies";
 export interface PokemonResponse {
 	abilities: [
 		{
@@ -43,10 +43,7 @@ export interface PokemonResponse {
 	order: number;
 	past_abilities: [];
 	past_types: [];
-	species: {
-		name: string;
-		url: string;
-	};
+	species: PokemonSpecies;
 	sprites: {
 		back_default: string;
 	};

@@ -1,15 +1,14 @@
 "use client";
-
-import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
 import React from "react";
 import PokemonPreview from "../pokemon-preview/pokemonPreview";
 import styles from "./pokemonCard.module.css";
 import { EvolutionDetail } from "@/app/interfaces/pokemons/pokemonEvolution";
 import Link from "next/link";
 import Image from "next/image";
+import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
 
 interface PokemonCardProps {
-	pokemon: PokemonShort;
+	pokemon: PokemonResponse;
 	evolutionDetails?: EvolutionDetail[]; // Optional prop for evolution details
 }
 
@@ -24,7 +23,7 @@ const PokemonCard = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
 			{evolutionDetails && (
 				<div className={styles.evolutionDetails}>
 					{evolutionDetails.slice(-1).map((detail) => (
-						<div className={styles.details} key={pokemon.id}>
+						<div className={styles.details} key={pokemon.name}>
 							{detail.item?.name ? (
 								<div className={`${styles.detail} ${styles.item}`}>
 									<Image
