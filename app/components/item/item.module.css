@@ -19,3 +19,7 @@
 	flex-direction: column;
 	gap: 5px;
 }
+
+.item:hover .title {
+	color: var(--accent);
+}

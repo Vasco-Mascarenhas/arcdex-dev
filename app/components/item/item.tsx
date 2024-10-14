@@ -4,6 +4,7 @@ import styles from "./item.module.css";
 import { getId } from "@/app/utility/getid";
 import { ItemData } from "@/app/interfaces/heldItem/item";
 import ItemImg from "./components/itemImg";
+import Link from "next/link";
 const Item = async ({ itemRes }: { itemRes: ItemRes }) => {
 	const res = await fetch(
 		`https://pokeapi.co/api/v2/item/${getId(itemRes.url)}/`
@@ -20,9 +21,10 @@ const Item = async ({ itemRes }: { itemRes: ItemRes }) => {
 	*/
 
 	return (
-		<div className={styles.item}>
+		<Link href={`/items/${itemRes.name}`} className={styles.item}>
 			<div className={styles.title}>
 				<h3>{itemRes.name.replaceAll("-", " ")}</h3>
+				<span>#{data.id}</span>
 				<ItemImg
 					name={data.name}
 					url={data.sprites.default ? data.sprites.default : ""}
@@ -36,7 +38,7 @@ const Item = async ({ itemRes }: { itemRes: ItemRes }) => {
 					<span>Fling effect: {data.fling_effect?.name.replace("-", " ")}</span>
 				)}
 			</div>
-		</div>
+		</Link>
 	);
 };
 
