@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./pokemonData.module.css";
-import PokemonAbilities from "../pokemonAbilities/pokemonAbilities";
 import PokemonStats from "../pokemonStats/pokemonStats";
 import PokemonInfo from "../pokemonInfo/pokemonInfo";
 import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
@@ -32,7 +31,6 @@ const PokemonData = async ({ pokemonRes }: PokemonDataProps) => {
 	return (
 		<div className={styles.pokemonData}>
 			{pokemon ? <PokemonPreview pokemon={pokemon} /> : <div>error</div>}
-			<PokemonAbilities abilities={data.abilities} />
 			<PokemonStats stats={data.stats} />
 			<PokemonInfo
 				height={data.height}

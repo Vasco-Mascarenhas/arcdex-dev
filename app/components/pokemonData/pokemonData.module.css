@@ -1,10 +1,11 @@
 .pokemonData {
 	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-	grid-gap: 10px;
-	gap: 10px;
-	justify-items: center;
-	align-items: center;
+	display: flex;
+	gap: 15px;
 	justify-content: center;
+}
+
+.pokemonData > div {
+	max-width: 250px;
+	width: 100%;
 }
