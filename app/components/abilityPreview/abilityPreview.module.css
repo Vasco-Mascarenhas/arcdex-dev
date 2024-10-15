@@ -27,6 +27,13 @@
 	text-transform: capitalize;
 }
 
+.flavor {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .id {
 	color: var(--accent);
 }

@@ -17,6 +17,10 @@ const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 		(flavor) => flavor.language.name === "en"
 	);
 
+	const effect = ability.effect_entries.find(
+		(effect) => effect.language.name === "en"
+	);
+
 	/*
 	const effect = ability.effect_entries.find(
 		(entry) => entry.language.name === "en"
@@ -70,7 +74,9 @@ const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 		<Link href={`/abilities/${ability.name}`} className={styles.ability}>
 			<h3 className={styles.name}>{ability.name.replaceAll("-", " ")}</h3>
 			<span className={styles.id}>#{ability.id}</span>
-			<p className={styles.flavor}>{flavor?.flavor_text}</p>
+			<p className={styles.flavor}>
+				{effect ? effect.effect : flavor?.flavor_text}
+			</p>
 			<span className={styles.generation}>
 				{ability.generation.name.replaceAll("-", " ")}
 			</span>
