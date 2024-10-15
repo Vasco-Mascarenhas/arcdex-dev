@@ -1,5 +1,3 @@
-/*
-
 import React from "react";
 import abilitiesData from "@/app/data/abilities.json";
 import { AbilityData } from "@/app/interfaces/abilities/ability";
@@ -53,6 +51,3 @@ const Page = ({ params }: { params: { ability: string } }) => {
 };
 
 export default Page;
-
-
-*/

@@ -4,8 +4,8 @@ import React from "react";
 import Image from "next/image";
 import styles from "./pokemonPreview.module.css";
 import PokemonTypes from "../pokemon-types/pokemonTypes";
-import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
-const PokemonPreview = ({ pokemon }: { pokemon: PokemonResponse }) => {
+import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
+const PokemonPreview = ({ pokemon }: { pokemon: PokemonShort }) => {
 	const handleImgError = async (
 		e: React.SyntheticEvent<HTMLImageElement>,
 		id: number
@@ -52,12 +52,12 @@ const PokemonPreview = ({ pokemon }: { pokemon: PokemonResponse }) => {
 			<div className={styles.previewTypes}>
 				<PokemonTypes types={pokemon.types} />
 			</div>
-			{pokemon.species.is_legendary && (
+			{pokemon.is_legendary && (
 				<div className={styles.legendary}>
 					<span>Legendary</span>
 				</div>
 			)}
-			{pokemon.species.is_mythical && (
+			{pokemon.is_mythical && (
 				<div className={styles.mythical}>
 					<span>Mythical</span>
 				</div>

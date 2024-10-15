@@ -5,10 +5,10 @@ import styles from "./pokemonCard.module.css";
 import { EvolutionDetail } from "@/app/interfaces/pokemons/pokemonEvolution";
 import Link from "next/link";
 import Image from "next/image";
-import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
+import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
 
 interface PokemonCardProps {
-	pokemon: PokemonResponse;
+	pokemon: PokemonShort;
 	evolutionDetails?: EvolutionDetail[]; // Optional prop for evolution details
 }
 
