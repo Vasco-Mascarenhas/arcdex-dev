@@ -6,7 +6,7 @@ import Container from "./components/container/container";
 import { Roboto } from "next/font/google";
 import { ThemeProvider } from "./components/themeContext/themeProvider"; // Import ThemeProvider
 import ThemeToggle from "./components/themeSwitcher/themeToggle";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const roboto = Roboto({
 	subsets: ["latin"],
 	display: "swap",
@@ -33,6 +33,7 @@ export default function RootLayout({
 						</header>
 						<Container>{children}</Container>
 						<ThemeToggle />
+						<SpeedInsights />
 					</div>
 				</body>
 			</html>
