@@ -86,6 +86,9 @@ const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 						key={ability.name + poke.pokemon.name + index}
 						className={styles.pokemon}
 					>
+						{/*
+							add option for reduce motion or low bandwidth mode to only show the static img png instead of the gif
+						*/}
 						<Image
 							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${poke.pokemon.id}.gif`}
 							width={80}
