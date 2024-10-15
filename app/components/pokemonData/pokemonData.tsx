@@ -25,9 +25,9 @@ const PokemonData = async ({ pokemonRes }: PokemonDataProps) => {
 	const data = await res.json();
 
 	const pokemon: PokemonShort | undefined = pokemonRes.id
-		? pokemons.find((p) => p.id === Number(pokemonRes.id))
+		? pokemons.find((p) => p.id === Number(data.id))
 		: pokemons[0];
-
+	console.log(data.id);
 	return (
 		<div className={styles.pokemonData}>
 			{pokemon ? <PokemonPreview pokemon={pokemon} /> : <div>error</div>}

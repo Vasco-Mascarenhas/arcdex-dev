@@ -34,7 +34,7 @@ const PokemonExpanded = async ({
 
 	return (
 		<section className={styles.pokemonExpanded}>
-			<PokemonDataContainer pokemonRes={data} />
+			<PokemonDataContainer pokemonRes={pokemonRes} />
 			<PokemonVersion versions={pokemonRes.game_indices} />
 			<PokemonAbilityData abilities={pokemonRes.abilities} />
 			<PokemonHeld heldItem={pokemonRes.held_items} />
