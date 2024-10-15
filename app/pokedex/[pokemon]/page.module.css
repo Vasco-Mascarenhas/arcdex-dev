@@ -4,11 +4,11 @@
 
 .container {
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 	gap: 20px;
 }
 .pokemonData {
-	max-width: 350px;
 	width: 100%;
 }
 

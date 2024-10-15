@@ -1,5 +1,10 @@
 .pokemonData {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+	grid-gap: 10px;
+	gap: 10px;
+	justify-items: center;
+	align-items: center;
+	justify-content: center;
 }

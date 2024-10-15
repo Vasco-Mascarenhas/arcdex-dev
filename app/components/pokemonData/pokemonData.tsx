@@ -4,7 +4,14 @@ import PokemonAbilities from "../pokemonAbilities/pokemonAbilities";
 import PokemonStats from "../pokemonStats/pokemonStats";
 import PokemonInfo from "../pokemonInfo/pokemonInfo";
 import { PokemonResponse } from "@/app/interfaces/pokemons/pokemonResponse";
-const PokemonData = async ({ pokemonRes }: { pokemonRes: PokemonResponse }) => {
+import { PokemonShort } from "@/app/interfaces/pokemons/pokemonShort";
+import PokemonPreview from "../pokemon-preview/pokemonPreview";
+import pokemons from "@/app/data/pokemons.json";
+interface PokemonDataProps {
+	pokemonRes: PokemonResponse;
+}
+
+const PokemonData = async ({ pokemonRes }: PokemonDataProps) => {
 	let res;
 	if (pokemonRes) {
 		res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonRes.id}`, {
@@ -18,8 +25,13 @@ const PokemonData = async ({ pokemonRes }: { pokemonRes: PokemonResponse }) => {
 
 	const data = await res.json();
 
+	const pokemon: PokemonShort | undefined = pokemonRes.id
+		? pokemons.find((p) => p.id === Number(pokemonRes.id))
+		: pokemons[0];
+
 	return (
 		<div className={styles.pokemonData}>
+			{pokemon ? <PokemonPreview pokemon={pokemon} /> : <div>error</div>}
 			<PokemonAbilities abilities={data.abilities} />
 			<PokemonStats stats={data.stats} />
 			<PokemonInfo

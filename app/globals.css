@@ -43,9 +43,14 @@ a {
 	text-decoration: none;
 }
 
+.layout {
+	display: flex;
+}
+
 .layout-header {
-	max-width: 1600px;
-	padding-inline: 20px;
-	padding-top: 20px;
-	margin: 0 auto;
+	width: 100%;
+	max-width: 200px;
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
 }

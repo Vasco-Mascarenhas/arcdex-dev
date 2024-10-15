@@ -27,11 +27,13 @@ export default function RootLayout({
 		<ThemeProvider>
 			<html lang="en" className={`${roboto.className}`}>
 				<body>
-					<header className="layout-header">
-						<NavBar />
-					</header>
-					<Container>{children}</Container>
-					<ThemeToggle />
+					<div className="layout">
+						<header className="layout-header">
+							<NavBar />
+						</header>
+						<Container>{children}</Container>
+						<ThemeToggle />
+					</div>
 				</body>
 			</html>
 		</ThemeProvider>

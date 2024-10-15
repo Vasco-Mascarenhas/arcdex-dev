@@ -9,6 +9,7 @@ import PokemonMoves from "../pokemonMoves/pokemonMoves";
 import PokemonHeld from "../pokemonHeld/pokemonHeld";
 import PokemonVariety from "../pokemonVariety/pokemonVariety";
 import PokemonVersion from "../pokemonVersion/pokemonVersion";
+import PokemonDataContainer from "../pokemonDataContainer/pokemonDataContainer";
 const PokemonExpanded = async ({
 	pokemonRes,
 }: {
@@ -33,6 +34,7 @@ const PokemonExpanded = async ({
 
 	return (
 		<section className={styles.pokemonExpanded}>
+			<PokemonDataContainer pokemonRes={data} />
 			<PokemonVersion versions={pokemonRes.game_indices} />
 			<PokemonAbilityData abilities={pokemonRes.abilities} />
 			<PokemonHeld heldItem={pokemonRes.held_items} />
