@@ -17,7 +17,7 @@ const PokemonCard = ({ pokemon, evolutionDetails }: PokemonCardProps) => {
 		<Link
 			className={styles.card}
 			prefetch={true}
-			href={{ pathname: `/pokedex/${pokemon.name}` }}
+			href={{ pathname: `/pokedex/${pokemon.id}` }}
 		>
 			<PokemonPreview pokemon={pokemon} />
 			{evolutionDetails && (
