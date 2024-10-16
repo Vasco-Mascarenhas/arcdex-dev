@@ -21,14 +21,14 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
 	useEffect(() => {
 		const savedTheme =
-			(localStorage.getItem("theme") as "light" | "dark") || "light";
+			(localStorage.getItem("theme") as "light" | "dark") || "dark";
 		setTheme(savedTheme);
-		document.body.className = savedTheme; // Set initial theme on body
+		document.body.className = savedTheme;
 	}, []);
 
 	useEffect(() => {
 		document.body.className = theme;
-		localStorage.setItem("theme", theme); // Save theme to local storage
+		localStorage.setItem("theme", theme);
 	}, [theme]);
 
 	const toggleTheme = () => {
@@ -45,7 +45,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 export const useTheme = (): ThemeContextType => {
 	const context = useContext(ThemeContext);
 	if (!context) {
-		throw new Error("useTheme must be used within a ThemeProvider");
+		throw new Error("useTheme must be used within a ThemeProvider!!!");
 	}
 	return context;
 };
