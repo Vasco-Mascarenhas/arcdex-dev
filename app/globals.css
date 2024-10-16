@@ -35,7 +35,10 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+p {
+	font-weight: 300;
+	color: var(--primary);
+}
 * {
 	box-sizing: border-box;
 	padding: 0;

@@ -4,13 +4,13 @@ import NavBar from "./components/navbar/navbar";
 import "./globals.css";
 import Container from "./components/container/container";
 import { Roboto } from "next/font/google";
-import { ThemeProvider } from "./components/themeContext/themeProvider"; 
+import { ThemeProvider } from "./components/themeContext/themeProvider";
 import ThemeToggle from "./components/themeSwitcher/themeToggle";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 const roboto = Roboto({
 	subsets: ["latin"],
 	display: "swap",
-	weight: "300",
+	weight: ["300", "400"],
 });
 
 export const metadata: Metadata = {
