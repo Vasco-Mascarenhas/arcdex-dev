@@ -11,11 +11,19 @@ const selectStyle: StylesConfig<Option, false> = {
 		...provided,
 		width: "200px",
 		height: "40px",
+		backgroundColor: "var(--background)",
+	}),
+
+	menuList: (provided) => ({
+		...provided,
+		backgroundColor: "var(--background)",
+		paddingTop: 0,
+		paddingBottom: 0,
 	}),
 	control: (provided) => ({
 		...provided,
-		backgroundColor: "var(--background)",
-		borderColor: "var(--accent)",
+		backgroundColor: "rgb(113 142 188 / 10%)",
+		borderColor: "rgba(113, 142, 188, 0.29)",
 		minHeight: "100%",
 	}),
 	option: (provided, state) => ({
@@ -24,7 +32,7 @@ const selectStyle: StylesConfig<Option, false> = {
 			? "var(--accent)"
 			: state.isFocused
 			? "var(--accent)"
-			: "var(--background)",
+			: "var(--glass)",
 		color: state.isSelected
 			? "var(--white)"
 			: state.isFocused

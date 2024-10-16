@@ -5,6 +5,7 @@
 	background: var(--background);
 	border-radius: 8px;
 	padding: 10px;
+	border: var(--border);
 }
 
 .ability h3 {

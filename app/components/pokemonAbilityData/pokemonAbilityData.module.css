@@ -6,10 +6,11 @@
 
 .container {
 	width: 100%;
-	background: var(--secondary);
+	background: var(--glass);
 	padding: 10px;
 	border-radius: 8px;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	border: var(--border);
 }

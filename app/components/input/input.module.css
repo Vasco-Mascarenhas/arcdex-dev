@@ -5,8 +5,8 @@
 	border-radius: 8px;
 	border: none;
 	font-size: 20px;
-	box-shadow: 0 0 3px var(--accent);
-	background-color: var(--background);
+	border: 1px solid rgba(113, 142, 188, 0.29);
+	background: rgb(113 142 188 / 10%);
 	color: var(--text);
 }
 

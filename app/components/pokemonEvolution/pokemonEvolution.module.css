@@ -23,11 +23,12 @@
 .details {
 	display: flex;
 	flex-direction: column;
-	background: var(--secondary);
+	background: var(--glass);
 	border-radius: 8px;
 	padding: 10px;
 	gap: 10px;
 	text-transform: capitalize;
+	border: var(--border);
 }
 
 .detail {
@@ -45,4 +46,5 @@
 	background-color: var(--background);
 	padding: 5px;
 	border-radius: 5px;
+	border: var(--border);
 }

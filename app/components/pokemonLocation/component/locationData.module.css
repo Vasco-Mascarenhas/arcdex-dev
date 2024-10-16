@@ -18,14 +18,15 @@
 
 .tab {
 	border-radius: 5px;
-	background-color: var(--secondary);
+	background-color: var(--glass);
 	padding: 5px 10px;
-	color: white;
+	color: var(--text);
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 	text-transform: capitalize;
 	font-weight: bold;
+	border: var(--border);
 }
 
 .activeTab {
@@ -76,11 +77,12 @@
 
 .locationTable th {
 	font-weight: bold;
-	background: var(--secondary);
+	background: var(--glass);
+	border: var(--border);
 }
 
 .locationTable td {
-	border: 1px solid var(--secondary);
+	border: var(--border);
 	padding: 8px;
 	text-align: left;
 }

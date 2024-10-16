@@ -4,12 +4,16 @@
 	--primary: #31445e;
 	--secondary: #dce3ef;
 	--accent: #43608e;
+	--glass: rgb(113 142 188 / 10%);
+	--border: 1px solid rgba(113, 142, 188, 0.29);
 }
 
 :root {
 	--red: #ef233c;
 	--darkRed: #d90429;
 	--white: #fff;
+	--glass: rgb(113 142 188 / 10%);
+	--border: 1px solid rgba(113, 142, 188, 0.29);
 }
 
 .dark {

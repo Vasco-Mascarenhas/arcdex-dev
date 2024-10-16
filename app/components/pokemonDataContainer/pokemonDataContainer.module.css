@@ -1,8 +1,9 @@
 .pokemonDataContainer {
-	background-color: var(--secondary);
+	background-color: var(--glass);
 	border-radius: 8px;
 	padding-block: 20px;
 	display: flex;
 	gap: 10px;
 	padding-inline: 10px;
+	border: var(--border);
 }

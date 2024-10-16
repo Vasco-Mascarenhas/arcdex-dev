@@ -3,8 +3,8 @@
 	display: flex;
 	flex-direction: column;
 	border-radius: 8px;
-	box-shadow: 0 0 3px var(--accent);
-	background-color: var(--background);
+	border: 1px solid rgba(113, 142, 188, 0.29);
+	background: rgb(113 142 188 / 10%);
 	position: fixed;
 	max-width: 200px;
 	top: 20px;
@@ -21,7 +21,7 @@
 	gap: 10px;
 	text-transform: capitalize;
 	font-weight: bold;
-	box-shadow: 0 0 1px var(--accent);
+	border-bottom: 1px solid rgba(113, 142, 188, 0.29);
 	padding-block: 10px;
 }
 
@@ -32,11 +32,11 @@
 }
 
 .navbar a:first-child {
-	box-shadow: none;
+	border: none;
 }
 
 .navbar a:last-child {
-	box-shadow: none;
+	border: none;
 }
 
 .active {
