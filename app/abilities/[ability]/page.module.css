@@ -14,9 +14,9 @@
 }
 
 .container {
-	background: var(--background);
+	background: var(--glass);
 	border-radius: 8px;
-	box-shadow: 0 0 3px var(--accent);
+	border: var(--border);
 	padding: 10px;
 	display: flex;
 	flex-direction: column;

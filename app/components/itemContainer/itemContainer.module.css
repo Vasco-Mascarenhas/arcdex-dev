@@ -14,8 +14,9 @@
 	width: 100%;
 	padding: 10px;
 	border-radius: 8px;
-	background-color: var(--secondary);
+	background-color: var(--glass);
 	height: 100%;
+	border: var(--border);
 }
 
 .item h3 {

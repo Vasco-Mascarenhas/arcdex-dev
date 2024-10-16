@@ -33,7 +33,7 @@
 	border-radius: 8px;
 	background-color: var(--background);
 	border: var(--border);
-	color: white;
+	color: var(--text);
 	width: 100%;
 	display: inline-block;
 	padding-block: 10px;

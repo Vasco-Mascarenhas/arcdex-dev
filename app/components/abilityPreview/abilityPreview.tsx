@@ -33,7 +33,7 @@ const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 	) => {
 		const target = e.target as HTMLImageElement;
 		const primarySrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-		const fallbackSrc = "/navbar/abilities.png";
+		const fallbackSrc = "/notfound/404.png";
 
 		try {
 			const response = await fetch(primarySrc);
@@ -90,7 +90,7 @@ const AbilityPreview = ({ ability, searchParams }: AbilityPreviewProps) => {
 							add option for reduce motion or low bandwidth mode to only show the static img png instead of the gif
 						*/}
 						<Image
-							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${poke.pokemon.id}.gif`}
+							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.pokemon.id}.png`}
 							width={80}
 							height={50}
 							alt={`${poke.pokemon.name} image`}
