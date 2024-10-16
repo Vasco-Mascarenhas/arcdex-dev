@@ -4,7 +4,7 @@ import NavBar from "./components/navbar/navbar";
 import "./globals.css";
 import Container from "./components/container/container";
 import { Roboto } from "next/font/google";
-import { ThemeProvider } from "./components/themeContext/themeProvider"; // Import ThemeProvider
+import { ThemeProvider } from "./components/themeContext/themeProvider"; 
 import ThemeToggle from "./components/themeSwitcher/themeToggle";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 const roboto = Roboto({

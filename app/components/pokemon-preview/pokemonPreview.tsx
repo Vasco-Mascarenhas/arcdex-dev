@@ -31,7 +31,7 @@ const PokemonPreview = ({ pokemon }: { pokemon: PokemonShort }) => {
 		<div className={styles.preview}>
 			<div className={styles.previewImg}>
 				<Image
-					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${pokemon.id}.gif`}
+					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
 					unoptimized={true}
 					className={styles.prevImg}
 					alt={`${pokemon.name} image`}
