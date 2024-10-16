@@ -10,7 +10,6 @@ const page = async ({ params }: { params: { pokemon: string } }) => {
 	} else {
 		res = await fetch("https://pokeapi.co/api/v2/pokemon/1");
 	}
-	console.log(res);
 
 	//fix this, there's some pokemons that there is no data about them and causes the page to crash
 	const data = await res.json();
