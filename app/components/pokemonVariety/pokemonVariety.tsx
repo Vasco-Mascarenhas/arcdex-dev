@@ -20,6 +20,7 @@ const PokemonVariety = ({
 	return (
 		<div className={styles.pokemonVarieties}>
 			<h2>Varieties</h2>
+
 			<div className={styles.varieties}>
 				{matchingPokemons.map((pokemon) => (
 					<PokemonCard key={pokemon.name} pokemon={pokemon} />
