@@ -6,6 +6,7 @@ import styles from "./pokemonMoves.module.css";
 import movesData from "../../data/moves.json";
 import { MoveData } from "@/app/interfaces/move/moveData";
 import { getTypeColor } from "@/app/utility/getTypeColors";
+import Link from "next/link";
 
 // Create a lookup object for moves data
 const movesLookup = movesData.reduce((lookup, move: MoveData) => {
@@ -161,7 +162,11 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 							<h3>{methodName.replaceAll("-", " ")}</h3>
 							<div className={styles.movContainer}>
 								{moves.map((move, index) => (
-									<div key={move.move.name + index} className={styles.move}>
+									<Link
+										href={`/moves/${move.move.name}`}
+										key={move.move.name + index}
+										className={styles.move}
+									>
 										<span className={styles.moveName}>
 											{move.move.name.replaceAll("-", " ")}
 										</span>
@@ -259,7 +264,7 @@ const PokemonMoves = ({ moves }: { moves: MoveInterface[] }) => {
 												)}
 											</div>
 										))}
-									</div>
+									</Link>
 								))}
 							</div>
 						</div>
