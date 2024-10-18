@@ -36,7 +36,7 @@ const PokemonPreview = ({ pokemon }: { pokemon: PokemonShort }) => {
 					className={styles.prevImg}
 					alt={`${pokemon.name} image`}
 					width={100}
-					height={70}
+					height={80}
 					onError={(e) => handleImgError(e, pokemon.id)}
 				/>
 			</div>

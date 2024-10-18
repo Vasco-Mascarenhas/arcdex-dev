@@ -3,25 +3,35 @@ import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 import React from "react";
 import styles from "./movesContainer.module.css";
 import { getTypeColor } from "@/app/utility/getTypeColors";
+import Link from "next/link";
 interface MovesContainerProps {
 	moves: MoveData[];
 	searchParams: SearchParams;
 }
 
 const MovesContainer = ({ moves, searchParams }: MovesContainerProps) => {
-	console.log(searchParams);
-	console.log(moves[0]);
-
 	let filteredMoves = moves;
 
+	if (searchParams.searched) {
+		filteredMoves = filteredMoves.filter((move) =>
+			move.name.toLowerCase().includes(searchParams.searched)
+		);
+	}
+
 	if (searchParams.type) {
-		filteredMoves = moves.filter((move) => move.type === searchParams.type);
+		filteredMoves = filteredMoves.filter(
+			(move) => move.type === searchParams.type
+		);
 	}
 
 	return (
 		<div className={styles.movesContainer}>
 			{filteredMoves.map((move) => (
-				<div key={move.id} className={styles.move}>
+				<Link
+					href={`/moves/${move.name}`}
+					key={move.id}
+					className={styles.move}
+				>
 					<div className={styles.moveName}>
 						{move.name.replaceAll("-", " ")}
 					</div>
@@ -36,7 +46,7 @@ const MovesContainer = ({ moves, searchParams }: MovesContainerProps) => {
 						</span>
 						<span>Accuracy: {move.accuracy ? move.accuracy : "-"}</span>
 					</div>
-				</div>
+				</Link>
 			))}
 		</div>
 	);
