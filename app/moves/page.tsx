@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import styles from "./page.module.css";
 import Ordering from "../components/ordering/ordering";
 import { typeOptions } from "../constants/typeOptions";
@@ -10,11 +10,13 @@ const Page = ({ searchParams }: { searchParams: SearchParams }) => {
 
 	return (
 		<div className={styles.moves}>
-			<Ordering
-				placeholder="Search Moves!"
-				options={typeOptions}
-				rarity={rare}
-			/>
+			<Suspense>
+				<Ordering
+					placeholder="Search Moves!"
+					options={typeOptions}
+					rarity={rare}
+				/>
+			</Suspense>
 			<MovesContainer searchParams={searchParams} moves={moves} />
 		</div>
 	);

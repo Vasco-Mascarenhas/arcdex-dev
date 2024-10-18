@@ -11,7 +11,7 @@
 	text-transform: capitalize;
 	padding: 10px;
 	gap: 10px;
-	background: var(--background);
+	background: var(--glass);
 	border: var(--border);
 	border-radius: 8px;
 	width: 100%;
@@ -44,6 +44,6 @@
 }
 
 .stats span {
-	min-width: 50px;
+	min-width: 60px;
 	text-align: center;
 }
