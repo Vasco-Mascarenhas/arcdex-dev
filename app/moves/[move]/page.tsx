@@ -6,7 +6,6 @@ import { Moves } from "@/app/interfaces/move/moves";
 import Image from "next/image";
 import pokemons from "@/app/data/pokemons.json";
 import { getId } from "@/app/utility/getid";
-import PokemonCard from "@/app/components/pokemon-card/pokemonCard";
 import PokemonContainer from "@/app/components/pokemon-container/pokemonContainer";
 import { SearchParams } from "@/app/interfaces/searchParams/searchPara";
 
@@ -41,11 +40,13 @@ const Page = async ({ params, searchParams }: MovePageProps) => {
 		(effect) => effect.language.name === "en"
 	);
 
-	const effectChanges = data.effect_changes.map((effect) =>
+	/**
+     * const effectChanges = data.effect_changes.map((effect) =>
 		effect.effect_entries.filter((effct) => effct.language.name === "en")
 	);
+     */
 
-	let movePokemons = [];
+	const movePokemons = [];
 
 	for (let i = 0; i < data.learned_by_pokemon.length; i++) {
 		movePokemons.push(pokemons[Number(getId(data.learned_by_pokemon[i].url))]);
