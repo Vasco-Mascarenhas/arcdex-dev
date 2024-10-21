@@ -5,6 +5,7 @@ import games from "@/app/data/games.json";
 import regions from "@/app/data/regions.json";
 import { getId } from "./utility/getid";
 import RegionCard from "./components/regionCard/regionCard";
+import { Suspense } from "react";
 export default function Home() {
 	return (
 		<div className={styles.page}>
@@ -12,7 +13,9 @@ export default function Home() {
 				<h1>ArcDex Pokédex</h1>
 			</div>
 			<div className={styles.search}>
-				<Input placeholder="Search for Pokémon!" />
+				<Suspense>
+					<Input placeholder="Search for Pokémon!" />
+				</Suspense>
 			</div>
 			<div className={styles.games}>
 				<h2>Games</h2>

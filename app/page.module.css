@@ -1,7 +1,18 @@
+.page {
+	padding-block: 20px;
+}
+.page h1 {
+	margin-bottom: 20px;
+}
+
+.page .search {
+	margin-bottom: 25px;
+}
 .gameContainer {
 	display: flex;
 	gap: 10px;
 	flex-wrap: wrap;
+	margin-bottom: 25px;
 }
 .regionsContainer {
 	display: grid;
