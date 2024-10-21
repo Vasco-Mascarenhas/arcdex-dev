@@ -1,0 +1,33 @@
+.gameCardLink {
+	border-radius: 8px;
+	text-align: left;
+	text-transform: capitalize;
+	border: var(--border);
+	background-color: var(--glass);
+	overflow: hidden;
+	position: relative;
+}
+.gameCard .image {
+	max-height: 150px;
+	overflow: hidden;
+	transition: all 0.2s ease-in-out;
+}
+.gameCardLink:hover .image {
+	scale: 1.05;
+}
+
+.gameCard img {
+	border-radius: 8px;
+	height: auto;
+	display: flex;
+}
+
+.name {
+	border-top: var(--border);
+	position: absolute;
+	padding: 10px;
+	bottom: 0;
+	background: var(--background);
+	width: 100%;
+	color: var(--accent);
+}

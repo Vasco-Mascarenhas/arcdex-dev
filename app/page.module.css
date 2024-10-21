@@ -1,1 +1,14 @@
+.gameContainer {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+.regionsContainer {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
 
+.page h2 {
+	margin-bottom: 20px;
+}
