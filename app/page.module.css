@@ -8,11 +8,20 @@
 .page .search {
 	margin-bottom: 25px;
 }
+
+.page .games {
+	width: 100%;
+}
 .gameContainer {
 	display: flex;
 	gap: 10px;
-	flex-wrap: wrap;
+	overflow-x: scroll;
 	margin-bottom: 25px;
+}
+
+.games ::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
 }
 .regionsContainer {
 	display: grid;

@@ -1,5 +1,5 @@
 .container {
-	width: 100%;
+	width: calc(100% - 240px);
 	padding-inline: 20px;
 	min-height: 100vh;
 }

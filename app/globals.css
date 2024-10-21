@@ -61,3 +61,18 @@ a {
 	flex-direction: column;
 	margin-left: 20px;
 }
+
+::-webkit-scrollbar-thumb {
+	background: var(--accent);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0px 0px 3px 0px rgb(0 0 0 / 20%);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
