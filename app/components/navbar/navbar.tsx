@@ -16,7 +16,7 @@ const routes: Route[] = [
 		link: "/",
 	},
 	{
-		name: "pokedex",
+		name: "national-dex",
 		link: "/pokedex",
 	},
 	{
@@ -63,7 +63,7 @@ const NavBar = () => {
 						width={50}
 						height={50}
 					/>
-					{route.name}
+					{route.name.replaceAll("-", " ")}
 				</Link>
 			))}
 		</nav>
