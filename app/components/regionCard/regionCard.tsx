@@ -4,7 +4,7 @@ import styles from "./regionCard.module.css";
 import Image from "next/image";
 const RegionCard = ({ name }: { name: string }) => {
 	return (
-		<Link className={styles.gameCardLink} href={`/pokedex`}>
+		<Link className={styles.gameCardLink} href={`/location/${name}`}>
 			<div className={styles.gameCard}>
 				<div className={styles.image}>
 					<Image
